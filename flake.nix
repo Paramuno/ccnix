@@ -15,13 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland.url = "github:hyprwm/Hyprland/v0.41.2"
-    # Add easymotion for NixOS - Fedora uses hyprpm
-    # hyprland-easymotion = {
-    #   url = "github:zakk4223/hyprland-easymotion";
-    #   inputs.nixpkgs.follows = "hyprland";
-    # };
-
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest"; # flatpacks
     agenix.url = "github:ryantm/agenix"; # agenix secrets colmena
 
@@ -53,11 +46,7 @@
       lib = nixpkgs.lib;
 
       nodes = {
-        # kiosk = import ./nodes/kiosk-node.nix;
-        cosmos = import ./nodes/cosmos-node.nix;
-        cc2 = import ./nodes/cc2-node.nix;
-        fedora = import ./nodes/fedora-node.nix;
-        imac = import ./nodes/imac-node.nix;
+        cc1 = import ./nodes/cc1-node.nix;
       };
 
       mkNode = import ./lib/mkNode.nix { inherit inputs; };

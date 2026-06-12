@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  # mar admin
   users.users.admin = {
     isNormalUser = true;
     description = "admin";

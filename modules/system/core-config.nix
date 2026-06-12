@@ -106,7 +106,7 @@
   };
   # Makes espanso system service able to get env for gpg user service
   systemd.user.services.espanso.environment = {
-    PATH = lib.mkForce "/etc/profiles/per-user/mar/bin:/run/current-system/sw/bin:/run/wrappers/bin";
+    PATH = lib.mkForce "/etc/profiles/per-user/admin/bin:/run/current-system/sw/bin:/run/wrappers/bin";
     GNUPGHOME = "/home/mar/.local/share/gnupg";
   };
   environment.systemPackages = with pkgs; [
