@@ -6,7 +6,7 @@
 {
   imports = [
     # Eventually change to optin structure for parity with apps
-    ../../modules/profiles/config.nix
+    ../../modules/profiles/admin.nix
     ../../modules/system/audio-config.nix
     ../../modules/system/core-config.nix
     ../../modules/system/gui-config.nix

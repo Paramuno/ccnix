@@ -9,7 +9,6 @@
     gpg.enable = true;
     firefox.enable = true;
     "gh-dash".enable = true;
-    himalaya.enable = true;
     mpv.enable = true;
     swayimg.enable = true;
     vlc.enable = true;
