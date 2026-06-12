@@ -1,0 +1,69 @@
+gui:
+  theme:
+    # The active panel border. Uses Dracula Purple for a clear, vibrant focus indicator.
+    activeBorderColor:
+      - '#bd93f9'
+      - 'bold'
+    
+    # Inactive panels. Uses Dracula Comment (a muted blue-grey) to recede into the background.
+    inactiveBorderColor:
+      - '#6272a4'
+    
+    # Keybinding options and hints at the bottom. Uses Dracula Cyan for quick visibility.
+    optionsTextColor:
+      - '#8be9fd'
+    
+    # The background of the currently highlighted item (commit, file, or branch). 
+    # Uses Dracula Current Line for a subtle but distinct highlight.
+    selectedLineBgColor:
+      - '#44475a'
+    
+    # Background for commits you are cherry-picking. Uses Dracula Green.
+    cherryPickedCommitBgColor:
+      - '#50fa7b'
+    
+    # Text color for cherry-picked commits. Uses Dracula Background for contrast against the green.
+    cherryPickedCommitFgColor:
+      - '#282a36'
+    
+    # Files with unstaged changes in the Files panel. Uses Dracula Red to indicate pending actions.
+    unstagedChangesColor:
+      - '#ff5555'
+    
+    # Default text color across the entire application. Uses Dracula Foreground (off-white).
+    defaultFgColor:
+      - '#f8f8f2'
+      
+    # Border color when actively searching (using the '/' key). Uses Dracula Pink.
+    searchingActiveBorderColor:
+      - '#ff79c6'
+      - 'bold'
+
+
+customCommands:
+  - key: "<c-a>"
+    description: "Autosuggest AI Commit (Gemini)"
+    context: "files"
+    output: terminal
+    prompts:
+      - type: "menuFromCommand"
+        title: "Gemini Commit Suggestions"
+        key: "Msg"
+        # ---------------------------------------------------------
+        command: 'bash -c "$HOME/.scripts/git-gcommit.sh"'
+        # ---------------------------------------------------------
+        filter: '^(?P<raw>.*)$'
+        valueFormat: '{{ .raw }}'
+        labelFormat: '{{ .raw }}'
+        
+      - type: "menu"
+        title: "Action"
+        key: "Action"
+        options:
+          - name: "Commit immediately"
+            value: "commit"
+          - name: "Edit in Neovim before committing"
+            value: "edit"
+            
+# The Execution Logic is now a single, clean command
+    command: 'bash -c "$HOME/.scripts/git-gcommit-exec.sh \"{{.Form.Action}}\" \"{{.Form.Msg}}\""' 

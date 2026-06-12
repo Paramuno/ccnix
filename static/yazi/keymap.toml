@@ -1,0 +1,159 @@
+# ~/.config/yazi/keymap.toml
+[[mgr.prepend_keymap]]
+on = ["s"]
+run = "plugin easyjump"
+desc = "easyjump"
+
+[[mgr.prepend_keymap]]
+on = ["U"]
+run = "plugin mount"
+desc = "Mount devices"
+
+[[mgr.prepend_keymap]]
+on = ["Z"]
+run = "shell --confirm '~/.scripts/unzip.sh \"$1\"'"
+desc = "Move hovered zip to a new matching directory and extract"
+
+[[mgr.prepend_keymap]]
+on = ["<C-Enter>"]
+run = "shell --orphan --confirm '[ -d \"$1\" ] && kitty --working-directory \"$1\" || kitty'"
+desc = "Open kitty at hovered directory"
+
+[[mgr.prepend_keymap]]
+on = [".", "s"]
+run = "plugin what-size"
+desc = "Calc size of selection or cwd"
+
+[[mgr.prepend_keymap]]
+on = ["c", "m"]
+run = "plugin chmod"
+desc = "Chmod on selected files"
+
+[[mgr.prepend_keymap]]
+on = ["u"]
+run = "plugin restore -- --interactive"
+desc = "Restore deleted files/folders (Interactive)"
+
+
+[[mgr.prepend_keymap]]
+on = ["R", "b"]
+run = "plugin recycle-bin"
+desc = "Open Recycle Bin menu"
+
+
+[[mgr.prepend_keymap]]
+on = ["M", "s"]
+run = "linemode size"
+desc = "Linemode: size"
+
+[[mgr.prepend_keymap]]
+on = ["M", "p"]
+run = "linemode permissions"
+desc = "Linemode: permissions"
+
+[[mgr.prepend_keymap]]
+on = ["M", "o"]
+run = "linemode owner"
+desc = "Linemode: owner"
+
+[[mgr.prepend_keymap]]
+on = ["M", "m"]
+run = "linemode mtime"
+desc = "Linemode: mtime"
+
+[[mgr.prepend_keymap]]
+on = ["M", "b"]
+run = "linemode btime"
+desc = "Linemode: btime"
+
+[[mgr.prepend_keymap]]
+on = ["M", "n"]
+run = "linemode none"
+desc = "Linemode: none"
+
+[[mgr.prepend_keymap]]
+on = "l"
+run = "plugin smart-enter"
+desc = "Enter the child directory, or open the file"
+
+[[mgr.prepend_keymap]]
+on = ["'"]
+run = "plugin bookmarks save"
+desc = "Save current position as a bookmark"
+
+[[mgr.prepend_keymap]]
+on = ["m"]
+run = "plugin bookmarks jump"
+desc = "Jump to a bookmark"
+
+[[mgr.prepend_keymap]]
+on = ["b", "d"]
+run = "plugin bookmarks delete"
+desc = "Delete a bookmark"
+
+[[mgr.prepend_keymap]]
+on = ["b", "D"]
+run = "plugin bookmarks delete_all"
+desc = "Delete all bookmarks"
+
+[[mgr.prepend_keymap]]
+on = "f"
+run = "plugin smart-filter"
+desc = "Smart filter"
+
+[[mgr.prepend_keymap]]
+on = ["1"]
+run = "plugin relative-motions 1"
+desc = "Move in relative steps"
+
+[[mgr.prepend_keymap]]
+on = ["2"]
+run = "plugin relative-motions 2"
+desc = "Move in relative steps"
+
+[[mgr.prepend_keymap]]
+on = ["3"]
+run = "plugin relative-motions 3"
+desc = "Move in relative steps"
+
+[[mgr.prepend_keymap]]
+on = ["4"]
+run = "plugin relative-motions 4"
+desc = "Move in relative steps"
+
+[[mgr.prepend_keymap]]
+on = ["5"]
+run = "plugin relative-motions 5"
+desc = "Move in relative steps"
+
+[[mgr.prepend_keymap]]
+on = ["6"]
+run = "plugin relative-motions 6"
+desc = "Move in relative steps"
+
+[[mgr.prepend_keymap]]
+on = ["7"]
+run = "plugin relative-motions 7"
+desc = "Move in relative steps"
+
+[[mgr.prepend_keymap]]
+on = ["8"]
+run = "plugin relative-motions 8"
+desc = "Move in relative steps"
+
+[[mgr.prepend_keymap]]
+on = ["9"]
+run = "plugin relative-motions 9"
+desc = "Move in relative steps"
+
+# Cycle to the NEXT tab using Tab
+[[mgr.prepend_keymap]]
+on = ["L"]
+run = "tab_switch 1 --relative"
+desc = "Switch to next tab"
+
+# Cycle to the PREVIOUS tab using Shift+Tab
+[[mgr.prepend_keymap]]
+on = ["H"]
+run = "tab_switch -1 --relative"
+desc = "Switch to previous tab"

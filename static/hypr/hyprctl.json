@@ -1,0 +1,122 @@
+[
+    {
+        "key": "general:col.active_border",
+        "value": "rgb(f66151)"
+    },
+    {
+        "key": "general:border_size",
+        "value": 2
+    },
+    {
+        "key": "general:no_border_on_floating",
+        "value": false
+    },
+    {
+        "key": "general:gaps_in",
+        "value": 1
+    },
+    {
+        "key": "general:gaps_out",
+        "value": 1
+    },
+    {
+        "key": "decoration:rounding",
+        "value": 10
+    },
+    {
+        "key": "decoration:active_opacity",
+        "value": 1.0
+    },
+    {
+        "key": "decoration:inactive_opacity",
+        "value": 1.0
+    },
+    {
+        "key": "decoration:drop_shadow",
+        "value": true
+    },
+    {
+        "key": "decoration:dim_inactive",
+        "value": true
+    },
+    {
+        "key": "decoration:dim_strength",
+        "value": 0.2
+    },
+    {
+        "key": "decoration:blur:contrast",
+        "value": 1.3
+    },
+    {
+        "key": "decoration:blur:brightness",
+        "value": 0.6
+    },
+    {
+        "key": "decoration:blur:vibrancy",
+        "value": 0.4
+    },
+    {
+        "key": "decoration:blur:size",
+        "value": 6
+    },
+    {
+        "key": "decoration:blur:passes",
+        "value": 1
+    },
+    {
+        "key": "general:allow_tearing",
+        "value": false
+    },
+    {
+        "key": "decoration:blur:noise",
+        "value": 0.0
+    },
+    {
+        "key": "decoration:blur:vibrancy_darkness",
+        "value": 0.2
+    },
+    {
+        "key": "decoration:blur:ignore_opacity",
+        "value": false
+    },
+    {
+        "key": "decoration:fullscreen_opacity",
+        "value": 1.0
+    },
+    {
+        "key": "decoration:dim_special",
+        "value": 0.2
+    },
+    {
+        "key": "decoration:dim_around",
+        "value": 0.5
+    },
+    {
+        "key": "decoration:blur:popups",
+        "value": false
+    },
+    {
+        "key": "decoration:blur:enabled",
+        "value": false
+    },
+    {
+        "key": "general:gaps_workspaces",
+        "value": 0
+    },
+    {
+        "key": "general:hover_icon_on_border",
+        "value": true
+    },
+    {
+        "key": "animations:enabled",
+        "value": false
+    },
+    {
+        "key": "general:extend_border_grab_area",
+        "value": 15
+    },
+    {
+        "key": "decoration:shadow_render_power",
+        "value": 3
+    }
+]

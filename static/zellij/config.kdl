@@ -1,0 +1,45 @@
+//Fix for the pinned pane bug which doesnt keep borderless on resurrection
+//session_serialization true
+//serialize_pane_viewport false
+// Wait for the bug to be fixed, resurrection gone for now
+session_serialization false
+
+theme "catppuccin-mocha"
+default_shell "zsh"
+default_layout "zjstatus"
+pane_frames false
+scrollback_editor "nvim"
+
+mouse_mode true
+copy_on_select true
+copy_clipboard "system"
+copy_command "wl-copy"
+
+keybinds {
+    shared {
+        unbind "Alt h" "Alt j" "Alt k" "Alt l" "Alt n" "Alt f"
+        unbind "Ctrl q" "Ctrl s" "Ctrl o" "Ctrl n" "Ctrl t" "Ctrl b" "Ctrl h"
+        bind "Alt 1" { NewTab; }
+        bind "Alt 2" { CloseTab; }
+    }
+    shared_except "locked" {
+        bind "Ctrl Shift Alt t" { GoToNextTab; }
+        bind "Ctrl Shift Alt n" { NextSwapLayout; }
+        bind "Ctrl Shift Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Ctrl Shift Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Ctrl Shift Alt j" "Alt Down" { MoveFocus "Down"; }
+        bind "Ctrl Shift Alt k" "Alt Up" { MoveFocus "Up"; }
+        bind "Ctrl Shift Alt y" { ToggleFloatingPanes; }
+        bind "Ctrl Shift Alt p" { NewPane; }
+        bind "Ctrl Shift Alt u" { EditScrollback; }
+        bind "Ctrl Shift Alt b" { SwitchToMode "Scroll"; }
+        bind "Ctrl Shift Alt x" { Detach; }
+        bind "Ctrl Shift Alt w" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+                move_to_focused_tab true
+            }
+            SwitchToMode "Normal"
+        }
+    }
+}

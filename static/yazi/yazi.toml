@@ -1,0 +1,28 @@
+[mgr]
+ratio = [2, 5, 6]
+show_hidden = true
+hide = ["\\.cargo$"]
+
+[open]
+prepend_rules = [
+  { mime = "application/pdf", use = "remote_aware" },
+  { mime = "image/*", use = "remote_aware" },
+  { mime = "audio/*", use = "remote_aware" },
+  { mime = "video/*", use = "remote_aware" },
+]
+
+[opener]
+remote_aware = [
+  { run = '$HOME/.scripts/yazi-open-or-mount.sh "$1"', orphan = true, desc = "Open (sshfs-mount if remote)", for = "unix" },
+]
+edit = [{ run = 'nvim "$@"', block = true, desc = "Edit", for = "unix" }]
+
+[plugin]
+prepend_previewers = [
+  { mime = "image/*", run = "sshpreview" },
+  { mime = "application/pdf", run = "sshpreview" },
+]
+prepend_fetchers = [
+  { id = "git", url = "*", run = "git" },
+  { id = "git", url = "*/", run = "git" },
+]

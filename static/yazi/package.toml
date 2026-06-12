@@ -1,0 +1,64 @@
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "a603d9e"
+hash = "e02a788e5b8ae0fb47fd0193dda589cc"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "88990a6"
+hash = "407d19bc4fb46eff5fa8ff8337644847"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "88990a6"
+hash = "270915fa8282a19908449530ff66f7e2"
+
+[[plugin.deps]]
+use = "dedukun/bookmarks"
+rev = "9ef1254"
+hash = "92fbb5483657fa7976cdf4e0104e18e0"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "88990a6"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "fa68711"
+hash = "8714306b5cac6359edbacbf545fbd691"
+
+[[plugin.deps]]
+use = "boydaihungst/restore"
+rev = "4eda0bf"
+hash = "778941e7f1ebbacd60f4e254bb3c51de"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "1962818"
+hash = "f0c8c378184d5f8abd1b095a443d336d"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "179ebf6"
+hash = "57056b9728006881d580ccabe8154a9c"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:obsidian-glow"
+rev = "4c57537"
+hash = "99aa06d3014798d86001c324468d497f"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:dracula"
+rev = "4c57537"
+hash = "8589ae0231756a9daf9c072f31b1fe0"
+
+[[flavor.deps]]
+use = "ZimCodes/yazi-flavors:obsidian-glow"
+rev = "20480a1"
+hash = "15155c2a51cabb6653d3b5206f98574"
+
+[[flavor.deps]]
+use = "hankertrix/bluloco-yazi:bluloco-dark"
+rev = "dc47a6d"
+hash = "aaa55b7bf1fa60e9da0df36e0771b610"

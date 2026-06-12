@@ -1,0 +1,45 @@
+# ~/.config/swayimg/config
+
+[general]
+# Start with optimal scaling
+scale = optimal
+overlay = no
+
+[keys.viewer]
+# --- Panning (Vim Movement) ---
+# The '10' moves the viewport by 10% for smooth panning
+h = step_left 10
+j = step_down 10
+k = step_up 10
+l = step_right 10
+
+# --- File Navigation ---
+n = next_file
+p = prev_file
+Shift+j = next_file
+Shift+k = prev_file
+
+# Jump to first/last file (Vim's gg and G)
+g = first_file
+Shift+g = last_file
+
+# --- Zooming (Modern syntax for Fedora's stable version) ---
+a = scale +10
+s = scale -10
+z = scale fit
+Shift+z = scale real
+0 = scale optimal
+
+# --- Hyprland / Wayland System Operations ---
+# Delete file and advance
+# x = exec rm "%"; next_file
+
+# Yank path or image data via wl-clipboard
+y = exec echo -n "%" | wl-copy
+Shift+y = exec wl-copy < "%"
+
+# --- UI and Exiting ---
+i = info
+f = fullscreen
+q = exit
+Escape = exit

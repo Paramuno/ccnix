@@ -1,0 +1,130 @@
+
+;; 1. Global settings (Must be first)
+(defcfg
+  process-unmapped-keys yes 
+)
+
+;; 2. Source keys (Standard 60% + ISO nubs)
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ] 
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft nubs z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+;; 3. Default Layer
+(deflayer default
+  grv  1    2    3    4    5    6    7    8    9    0    -    @plus    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    @brako    @brakc  
+  @esc a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft @cir z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+;; 4. Circled Layer (Unicode characters)
+(deflayer circled-layer
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    @cq  @cw  @ce  @cr  @ct  @cy  @cu  @ci  @co  @cp  _    _   
+  _    @ca  @cs  @cd  @cf  @cg  @ch  @cj  @ck  @cl  _    _    _
+  _    _    @cz  @cx  @cc  @cv  @cb  @cn  @cm  _    _    _    _
+  _    _    _              @cspc              _    _    _
+)
+
+;; 5. Symbols Layer (Home row symbols)
+(deflayer symbols
+  _    _       _       _       _       _       _       _        _        _        _       _      _      _
+  _    @s_at   @s_perc @s_dqt  @s_sqt  @s_excl @s_circ @s_crl_o @s_crl_c @s_amp   @s_dlr  _      _     
+  _    @s_plus @s_hash @s_sq_o @s_sq_c @s_ast  @s_und  @s_par_o @s_par_c @s_eq    @s_mover       _      _
+  _    _       @s_left  @s_down @s_up @s_right @s_grv  @s_min  @s_tild   @s_croco @s_crocc      _      _
+  _    _       _               _               _       _        _
+)
+
+;; 6. Aliases
+(defalias
+  ;; Layer Toggles
+  cir  (layer-toggle circled-layer)
+  
+  ;; Tap-Hold Keys
+  ;; esc  (tap-hold 200 200 esc (multi lctl lalt lsft))
+  esc  (tap-hold 200 200 esc (layer-toggle symbols))
+  ;; spc  (tap-hold 150 150 spc (layer-toggle symbols))
+
+  ;; Key Swaps
+  plus (fork S-= (unshift =) (lsft rsft)) ;; 
+  brako (fork S-[ (unshift [) (lsft rsft)) ;; 
+  brakc (fork S-] (unshift ]) (lsft rsft)) ;; 
+
+
+  ;; Symbol Aliases
+  ;; Row 1
+  s_at     S-2     ;; @
+  s_perc   S-5     ;; %
+  s_dqt    S-'     ;; " (Double Quote)
+  s_sqt    '       ;; ' (Single Quote)
+  s_excl   S-1     ;; !
+  s_circ   S-6     ;; ^
+  s_crl_o  S-[     ;; { (Curly Open)
+  s_crl_c  S-]     ;; } (Curly Close)
+  s_amp    S-7     ;; &
+  s_dlr    S-4     ;; $
+
+  ;; Row 2
+  s_plus   S-=     ;; +
+  s_hash   S-3     ;; #
+  s_sq_o   [       ;; [ (Square Open)
+  s_sq_c   ]       ;; ] (Square Close)
+  s_ast    S-8     ;; *
+  s_und    S--     ;; _ (Underscore)
+  s_par_o  S-9     ;; ( (Paren Open)
+  s_par_c  S-0     ;; ) (Paren Close)
+  s_eq     =       ;; =
+  s_mover  right   ;; move right to get out of brackets
+
+  ;; Row 3
+  s_left  (unicode U+2190) ;; ←
+  s_down  (unicode U+2193) ;; ↓
+  s_up    (unicode U+2191) ;; ↑
+  s_right (unicode U+2192) ;; →
+  s_tild   S-grv   ;; ~ (Tilde)
+  s_grv    grv     ;; ` (Backtick)
+  s_min    -       ;; - (Minus)          
+  s_croco  S-,     ;; < (Croc open) * Shift is open now
+  s_crocc  S-.     ;; > (Croc close)
+
+  ;; Row 1 (QWERTYUIOP)
+  cq (unicode U+24E0)  ;; q -> ⓠ
+  cw (unicode U+24E6)  ;; w -> ⓦ
+  ce (unicode U+24D4)  ;; e -> ⓔ
+  cr (unicode U+24E1)  ;; r -> ⓡ
+  ct (unicode U+24E3)  ;; t -> ⓣ
+  cy (unicode U+24E8)  ;; y -> ⓨ
+  cu (unicode U+24E4)  ;; u -> ⓤ
+  ci (unicode U+24D8)  ;; i -> ⓘ
+  co (unicode U+24DE)  ;; o -> ⓞ
+  cp (unicode U+24DF)  ;; p -> ⓟ
+
+  ;; Row 2 (ASDFGHJKL)
+  ca (unicode U+24D0)  ;; a -> ⓐ
+  cs (unicode U+24E2)  ;; s -> ⓢ
+  cd (unicode U+24D3)  ;; d -> ⓓ
+  cf (unicode U+24D5)  ;; f -> ⓕ
+  cg (unicode U+24D6)  ;; g -> ⓖ
+  ch (unicode U+24D7)  ;; h -> ⓗ
+  cj (unicode U+24D9)  ;; j -> ⓙ
+  ck (unicode U+24DA)  ;; k -> ⓚ
+  cl (unicode U+24DB)  ;; l -> ⓛ
+
+  ;; Row 3 (ZXCVBNM)
+  cz (unicode U+24E9)  ;; z -> ⓩ
+  cx (unicode U+24E7)  ;; x -> ⓧ
+  cc (unicode U+24D2)  ;; c -> ⓒ
+  cv (unicode U+24E5)  ;; v -> ⓥ
+  cb (unicode U+24D1)  ;; b -> ⓑ
+  cn (unicode U+24DD)  ;; n -> ⓝ
+  cm (unicode U+24DC)  ;; m -> ⓜ
+
+  ;; Row 4 (Space)
+  cspc (unicode U+00A4)  ;; ¤
+
+)

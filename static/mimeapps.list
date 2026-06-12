@@ -1,0 +1,27 @@
+[Added Associations]
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+text/plain=org.kde.kwrite.desktop;libreoffice-writer.desktop;
+application/x-shellscript=org.kde.kwrite.desktop;
+application/xml=org.kde.kwrite.desktop;
+image/jpeg=org.kde.gwenview.desktop;org.kde.kolourpaint.desktop;
+image/png=brave-browser.desktop;okularApplication_kimgio.desktop;
+video/mp4=vlc.desktop;
+application/epub+zip=calibre-gui.desktop;
+video/x-matroska=vlc.desktop;
+application/pdf=brave-browser.desktop;firefox_firefox.desktop;calibre-gui.desktop;
+text/markdown=emacs.desktop;nvim.desktop;
+
+[Default Applications]
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+application/pdf=org.pwmt.zathura.desktop;
+; inode/directory=org.kde.dolphin.desktop;
+inode/directory=yazi-folder.desktop;
+image/jpeg=swayimg.desktop;
+image/png=swayimg.desktop;
+image/gif=swayimg.desktop;
+image/webp=swayimg.desktop;
+image/avif=swayimg.desktop;
+text/html=firefox.desktop;
+application/xhtml+xml=firefox.desktop;

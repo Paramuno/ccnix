@@ -1,0 +1,36 @@
+IDE:
+  editor:
+    blinkDuration: 600
+    disableBlinkingCursor: false
+    font:
+      antialias: 2
+      family: MonoLisa Medium
+      size: 10
+    highlightBracketContents: true
+    highlightCurrentLine: true
+    inactiveEditorFadeAlpha: 64
+    indentWidth: 4
+    insertMatchingTokens: false
+    lineWrap: true
+    spaceIndent: false
+    stepForwardEvaluation: false
+    theme: dracula
+    useComboBox: false
+    useComboBoxWhenSplitting: false
+  interpreter:
+    autoStart: true
+    configFile: /home/m/.config/SuperCollider/sclang_conf.yaml
+    runtimeDir: ""
+  mainWindow:
+    detached: !QVariantMap
+      documents-dock: ""
+      help-dock: ""
+      post-dock: ""
+    geometry: AdnQywADAAAAAAAAAAAAFAAAB38AAARLAAAAAAAAAAD////+/////gAAAAACBAAAB4AAAAAAAAAAFAAAB38AAARL
+    state: AAAA/wAAAAD9AAAAAgAAAAAAAAAAAAAAAPwCAAAAAfsAAAAcAGQAbwBjAHUAbQBlAG4AdABzAC0AZABvAGMAawAAAAAA/////wAAAF8A////AAAAAQAAAVoAAAQG/AIAAAAC+wAAABIAaABlAGwAcAAtAGQAbwBjAGsBAAAAFgAAA1kAAABNAP////sAAAASAHAAbwBzAHQALQBkAG8AYwBrAQAAA3AAAACsAAAATQD///8AAAYlAAAEBgAAAAEAAAACAAAAAQAAAAL8AAAAAA==
+  postWindow:
+    lineWrap: false
+    scrollback: 1000
+  recentDocuments: !QVariantList
+    - /home/m/.config/SuperCollider/s.scd
+  startWithSession: last

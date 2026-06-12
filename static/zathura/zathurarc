@@ -1,0 +1,13 @@
+# General settings
+set selection-clipboard clipboard
+set scroll-step 50
+set smooth-scroll true
+
+# UI tweaks: remove borders and status padding for maximum screen real estate
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+
+# Dark mode inverted colors (toggle on/off with Ctrl+R)
+# set recolor true
+# set recolor-keephue true

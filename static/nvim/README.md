@@ -1,0 +1,1 @@
+# 💤 LazyVim adapted Fitosol

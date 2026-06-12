@@ -1,0 +1,3115 @@
+{
+  "layout": [
+    [
+      "ESC",
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6",
+      "F7",
+      "F8",
+      "F9",
+      "F10",
+      "F11",
+      "F12"
+    ],
+    [
+      "`",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "0",
+      "-",
+      "=",
+      "BACKSPACE"
+    ],
+    [
+      "TAB",
+      "Q",
+      "W",
+      "E",
+      "R",
+      "T",
+      "Y",
+      "U",
+      "I",
+      "O",
+      "P",
+      "[",
+      "]",
+      "|"
+    ],
+    [
+      "META/ESC",
+      "A",
+      "S",
+      "D",
+      "F",
+      "G",
+      "H",
+      "J",
+      "K",
+      "L",
+      ";",
+      "'",
+      "ENTER",
+      "MMB"
+    ],
+    [
+      "SHIFT_L",
+      "Z",
+      "X",
+      "C",
+      "V",
+      "B",
+      "N",
+      "M",
+      ",",
+      ".",
+      "/",
+      "LMB",
+      "RMB"
+    ],
+    [
+      "CTRL_L",
+      "CMOD",
+      "FN",
+      "SUPER",
+      "ALT_L",
+      "SPACE",
+      "MENU",
+      "LEFT",
+      "DOWN",
+      "UP",
+      "RIGHT"
+    ]
+  ],
+  "binds": {
+    "kitty": {
+      "S": {
+        "desc": "v Fzf nvim",
+        "type": "modifier"
+      },
+      "D": {
+        "desc": "dotfiles git",
+        "type": "action"
+      },
+      "L": {
+        "desc": "lh home manager",
+        "type": "action"
+      }
+    },
+    "nvim": {
+      "Y": {
+        "desc": "Yank (yy)",
+        "icon": "",
+        "type": "action"
+      },
+      "SPACE": {
+        "desc": "Chord leader",
+        "icon": "󱁐",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Snake",
+        "icon": "",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "Fold leader",
+        "icon": "",
+        "type": "action"
+      },
+      "G": {
+        "desc": "G leader",
+        "icon": "",
+        "type": "action"
+      },
+      "|": {
+        "desc": "Espanso",
+        "icon": "󰁌",
+        "type": "action"
+      },
+      "META/ESC": {
+        "desc": "Command",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Open line down",
+        "icon": "󱞩 󰇘",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up",
+        "icon": "",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Right",
+        "icon": "",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Left",
+        "icon": "",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Insert mode",
+        "icon": "󰞔 󰗧",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Undo",
+        "icon": "󰕌",
+        "type": "action"
+      },
+      "T": {
+        "desc": "Till next char",
+        "icon": "󰈞",
+        "type": "action"
+      },
+      "F": {
+        "desc": "Find next char",
+        "icon": "󰈞",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Delete (dd)",
+        "icon": "",
+        "type": "action"
+      },
+      "A": {
+        "desc": "Append",
+        "icon": "󰞘 󰗧",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Replace char",
+        "icon": "",
+        "type": "action"
+      },
+      "E": {
+        "desc": "next EOWord",
+        "icon": "󰞔 ",
+        "type": "action"
+      },
+      "W": {
+        "desc": "next BOWord",
+        "icon": "󰞘 ",
+        "type": "action"
+      },
+      "V": {
+        "desc": "Visual mode",
+        "icon": "󰒉",
+        "type": "action"
+      },
+      "B": {
+        "desc": "prev BO word",
+        "icon": "󰞓 ",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Change (cc)",
+        "icon": "",
+        "type": "action"
+      },
+      "X": {
+        "desc": "erase forwards",
+        "icon": "",
+        "type": "action"
+      },
+      "N": {
+        "desc": "next /match",
+        "icon": "󰁔 󱦞",
+        "type": "action"
+      },
+      "M": {
+        "desc": "create Mark at char",
+        "icon": "",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Paste",
+        "icon": "",
+        "type": "action"
+      },
+      "[": {
+        "desc": "Paragraph down",
+        "icon": "",
+        "type": "action"
+      },
+      "]": {
+        "desc": "Paragraph up",
+        "icon": "",
+        "type": "action"
+      },
+      "=": {
+        "desc": "next BOL",
+        "icon": " 󰩀",
+        "type": "action"
+      },
+      "-": {
+        "desc": "prev BOL",
+        "icon": "󰁍 󰩀",
+        "type": "action"
+      },
+      ",": {
+        "desc": "repeat last F/T",
+        "icon": "󰁪 󰮗",
+        "type": "action"
+      },
+      ".": {
+        "desc": "repeat edit",
+        "icon": "󰁪 ",
+        "type": "action"
+      },
+      "/": {
+        "desc": "Search on file",
+        "icon": "󱦞",
+        "type": "action"
+      },
+      ";": {
+        "desc": "repeat last f/t",
+        "icon": "󰁪 󰈞",
+        "type": "action"
+      },
+      "'": {
+        "desc": "to BOL of x mark",
+        "icon": "󰩀 ",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "(EE) Insert indented below",
+        "icon": "󰁂",
+        "type": "action"
+      },
+      "BACKSPACE": {
+        "desc": "prev char",
+        "icon": "",
+        "type": "action"
+      },
+      "`": {
+        "desc": "go to Mark at char (``) last Mark",
+        "icon": " ",
+        "type": "action"
+      },
+      "TAB": {
+        "desc": "Toggle last buffer",
+        "icon": "󰁪 ",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "record macro at char",
+        "icon": "󰑋",
+        "type": "action"
+      }
+    },
+    "nvim-ctrl": {
+      "V": {
+        "desc": "Visual block (i) insert literal",
+        "icon": "󰾂",
+        "type": "action"
+      },
+      "D": {
+        "desc": "scroll Down ½pg (i) unindent curr line",
+        "icon": "",
+        "type": "action"
+      },
+      "U": {
+        "desc": "scroll Up ½pg [i] deletes to BOL",
+        "icon": "",
+        "type": "action"
+      },
+      "F": {
+        "desc": "scroll Down 1pg",
+        "icon": "󰶹",
+        "type": "action"
+      },
+      "B": {
+        "desc": "scroll Up 1pg",
+        "icon": "󰶼",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "scroll Up 1 line (i) pull char from line below",
+        "icon": "",
+        "type": "action"
+      },
+      "E": {
+        "desc": "scroll down 1 line",
+        "icon": "",
+        "type": "action"
+      },
+      "C": {
+        "desc": "exit mode",
+        "icon": "󰈆",
+        "type": "action"
+      },
+      "R": {
+        "desc": "inserts Register +<C-w(a)> inserts (W)ord under cursor on [cmd]",
+        "icon": "",
+        "type": "action"
+      },
+      "W": {
+        "desc": "Window leader [i] delete Word before",
+        "icon": "",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Jumplist forward (i) pull char from live above",
+        "icon": "󰁔 󱡠",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Jumplist back (i) normal cmd on imode",
+        "icon": "󰁍 󱡠",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Left pane focus [i] Backspace",
+        "icon": "",
+        "type": "action"
+      },
+      "=": {
+        "desc": "<C-r>= open (r) expr",
+        "icon": "",
+        "type": "action"
+      },
+      "T": {
+        "desc": "(i) indent curr line",
+        "icon": "",
+        "type": "action"
+      },
+      "A": {
+        "desc": "(i) repeat last insertion",
+        "icon": "",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down pane focus",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up pane focus",
+        "icon": "",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Right pane focus",
+        "icon": "",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Quit all buffers",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "nvim-ctrl-shift": {
+      "F": {
+        "desc": "Global Search",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Add cursor down",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Add cursor up",
+        "icon": "",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Toggle cursor",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "yazi": {
+      "H": {
+        "desc": "Go Parent",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Go Child",
+        "type": "action"
+      },
+      "SPACE": {
+        "desc": "toggle select",
+        "icon": "",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Snake",
+        "icon": "",
+        "type": "action"
+      },
+      "F": {
+        "desc": "smart Filter",
+        "icon": "",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "FZF search",
+        "icon": "",
+        "type": "action"
+      },
+      "M": {
+        "desc": "jump to Mark",
+        "icon": "",
+        "type": "action"
+      },
+      "C": {
+        "desc": "C leader",
+        "icon": "",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Quit",
+        "icon": "",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up",
+        "icon": "",
+        "type": "action"
+      },
+      "G": {
+        "desc": "G leader",
+        "icon": "",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Yank",
+        "icon": "",
+        "type": "action"
+      },
+      "X": {
+        "desc": "cut",
+        "icon": "",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Paste",
+        "icon": "",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Delete",
+        "icon": "",
+        "type": "action"
+      },
+      "A": {
+        "desc": "Add new file",
+        "icon": "",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Rename",
+        "icon": "",
+        "type": "action"
+      },
+      "/": {
+        "desc": "Find next",
+        "icon": "",
+        "type": "action"
+      },
+      "N": {
+        "desc": "Next match",
+        "icon": "",
+        "type": "action"
+      },
+      "W": {
+        "desc": "task manager",
+        "icon": "",
+        "type": "action"
+      },
+      "T": {
+        "desc": "Tab create",
+        "icon": "",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "open",
+        "icon": "",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Open",
+        "icon": "",
+        "type": "action"
+      },
+      "V": {
+        "desc": "VIsual mode",
+        "icon": "",
+        "type": "action"
+      },
+      "U": {
+        "desc": "restore interactive",
+        "icon": "",
+        "type": "action"
+      },
+      ".": {
+        "desc": "size leader",
+        "icon": "",
+        "type": "action"
+      },
+      "TAB": {
+        "desc": "spot file",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "lazygit": {
+      "SPACE": {
+        "desc": "Stage File",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Commit",
+        "type": "action"
+      },
+      "A": {
+        "desc": "All files stage",
+        "type": "action"
+      },
+      "E": {
+        "desc": "Edit file",
+        "type": "action"
+      }
+    },
+    "firefox": {
+      "T": {
+        "desc": "new tab",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Yank leader",
+        "icon": "",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Left tab",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down scroll",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up scroll",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Right tab",
+        "type": "action"
+      },
+      "F": {
+        "desc": "/ Find mode",
+        "icon": "",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Snake links",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Close tab",
+        "type": "action"
+      },
+      "TAB": {
+        "desc": "Focus next link / field",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Reload current frame",
+        "icon": "",
+        "type": "action"
+      },
+      "G": {
+        "desc": "G leader",
+        "icon": "",
+        "type": "action"
+      },
+      "[": {
+        "desc": "[[ follow \"next/>\"",
+        "icon": "",
+        "type": "action"
+      },
+      "]": {
+        "desc": "] follow \"previous/<\"",
+        "icon": "",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Insert mode",
+        "icon": "",
+        "type": "action"
+      },
+      "M": {
+        "desc": "jump to Mark X",
+        "icon": "",
+        "type": "action"
+      },
+      "B": {
+        "desc": "open Bookmark",
+        "icon": "",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Omnibar new tab",
+        "icon": "",
+        "type": "action"
+      },
+      "U": {
+        "desc": "focus last tab",
+        "icon": "",
+        "type": "action"
+      },
+      "E": {
+        "desc": "HI",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "firefox-ctrl": {
+      "W": {
+        "desc": "Close Tab",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Focus address bar",
+        "type": "action"
+      },
+      "H": {
+        "desc": "History sidebar",
+        "type": "action"
+      },
+      "G": {
+        "desc": "Find again",
+        "type": "action"
+      },
+      "F": {
+        "desc": "Find in page",
+        "type": "action"
+      },
+      "A": {
+        "desc": "Select all",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Save page as",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "Undo",
+        "type": "action"
+      },
+      "X": {
+        "desc": "Cut",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Copy",
+        "type": "action"
+      },
+      "V": {
+        "desc": "Paste",
+        "type": "action"
+      },
+      "B": {
+        "desc": "Bookmarks sidebar",
+        "type": "action"
+      },
+      "N": {
+        "desc": "New window",
+        "type": "action"
+      },
+      "M": {
+        "desc": "Mute audio toggle",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Open file",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Print",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Page info",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Pasge source",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Redo",
+        "type": "action"
+      },
+      "T": {
+        "desc": "New tab",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Reload",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Quit",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Bookmark this page",
+        "type": "action"
+      },
+      "TAB": {
+        "desc": "Focus prev link / field",
+        "type": "action"
+      },
+      "BACKSPACE": {
+        "desc": "Delete prev word",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "Open focused on curr tab",
+        "type": "action"
+      }
+    },
+    "firefox-shift": {
+      "T": {
+        "desc": "search open Tabs",
+        "icon": "",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Snake in new tab",
+        "icon": "",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Prev history tab",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Next history tab",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Closed tab reopen",
+        "type": "action"
+      },
+      ",": {
+        "desc": "Left move tab",
+        "type": "action"
+      },
+      ".": {
+        "desc": "Right move tab",
+        "type": "action"
+      },
+      "W": {
+        "desc": "tab to new Window",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Close all right tabs",
+        "type": "action"
+      },
+      "F7": {
+        "desc": "Style editor",
+        "type": "action"
+      },
+      "F5": {
+        "desc": "Profiler",
+        "type": "action"
+      },
+      "F9": {
+        "desc": "Storage inspector",
+        "type": "action"
+      },
+      "TAB": {
+        "desc": "Focus next link / field",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Reload Nth tab",
+        "icon": "",
+        "type": "action"
+      },
+      "B": {
+        "desc": "open Bookmark in new tab",
+        "icon": "",
+        "type": "action"
+      },
+      "I": {
+        "desc": "show Image in new tab",
+        "icon": "",
+        "type": "action"
+      },
+      "X": {
+        "desc": "Closed all other tabs",
+        "icon": "",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Omnibar current tab",
+        "icon": "",
+        "type": "action"
+      },
+      "U": {
+        "desc": "edit current URL and go",
+        "icon": "",
+        "type": "action"
+      },
+      "ESC": {
+        "desc": "Task manager",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "firefox-ctrl-shift": {
+      "I": {
+        "desc": "Dev Tools / Toolbox",
+        "type": "modifier"
+      },
+      "T": {
+        "desc": "Reopen closed tab",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Web console",
+        "type": "action"
+      },
+      "C": {
+        "desc": "PIck / inspect an element",
+        "type": "action"
+      },
+      "E": {
+        "desc": "Network monitor",
+        "type": "action"
+      },
+      "M": {
+        "desc": "Responsive design mode",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Browser console",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "Debugger",
+        "type": "action"
+      }
+    },
+    "obsidian": {
+      "Y": {
+        "desc": "Yank (yy)",
+        "icon": "",
+        "type": "action"
+      },
+      "SPACE": {
+        "desc": "Leader",
+        "icon": "",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Snake",
+        "icon": "",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "Fold leader",
+        "icon": "",
+        "type": "action"
+      },
+      "G": {
+        "desc": "G leader",
+        "icon": "",
+        "type": "action"
+      },
+      "|": {
+        "desc": "Espanso",
+        "icon": "󰁌",
+        "type": "action"
+      },
+      "META/ESC": {
+        "desc": "Command",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Open line down",
+        "icon": "󱞩 󰇘",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up",
+        "icon": "",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Right",
+        "icon": "",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Left",
+        "icon": "",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Insert mode",
+        "icon": "󰞔 󰗧",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Undo",
+        "icon": "󰕌",
+        "type": "action"
+      },
+      "T": {
+        "desc": "unTil next char",
+        "icon": "󰈞",
+        "type": "action"
+      },
+      "F": {
+        "desc": "Find next char",
+        "icon": "󰈞",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Delete (dd)",
+        "icon": "",
+        "type": "action"
+      },
+      "A": {
+        "desc": "Append",
+        "icon": "󰞘 󰗧",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Replace char",
+        "icon": "",
+        "type": "action"
+      },
+      "E": {
+        "desc": "next EO word",
+        "icon": "󰞔 ",
+        "type": "action"
+      },
+      "W": {
+        "desc": "next BO Word",
+        "icon": "󰞘 ",
+        "type": "action"
+      },
+      "V": {
+        "desc": "Visual mode",
+        "icon": "󰒉",
+        "type": "action"
+      },
+      "B": {
+        "desc": "prev BO word",
+        "icon": "󰞓 ",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Change (cc)",
+        "icon": "",
+        "type": "action"
+      },
+      "X": {
+        "desc": "erase forwards",
+        "icon": "",
+        "type": "action"
+      },
+      "N": {
+        "desc": "next /match",
+        "icon": "󰁔 󱦞",
+        "type": "action"
+      },
+      "M": {
+        "desc": "create Mark at char",
+        "icon": "",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Paste",
+        "icon": "",
+        "type": "action"
+      },
+      "[": {
+        "desc": "Paragraph down",
+        "icon": "",
+        "type": "action"
+      },
+      "]": {
+        "desc": "Paragraph up",
+        "icon": "",
+        "type": "action"
+      },
+      "=": {
+        "desc": "next BOL",
+        "icon": " 󰩀",
+        "type": "action"
+      },
+      "-": {
+        "desc": "prev BOL",
+        "icon": "󰁍 󰩀",
+        "type": "action"
+      },
+      ",": {
+        "desc": "repeat last F/T",
+        "icon": "󰁪 󰮗",
+        "type": "action"
+      },
+      ".": {
+        "desc": "repeat edit",
+        "icon": "󰁪 ",
+        "type": "action"
+      },
+      "/": {
+        "desc": "Search on file",
+        "icon": "󱦞",
+        "type": "action"
+      },
+      ";": {
+        "desc": "repeat last f/t",
+        "icon": "󰁪 󰈞",
+        "type": "action"
+      },
+      "'": {
+        "desc": "to BOL of x mark",
+        "icon": "󰩀 ",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "(EE) Insert indented below",
+        "icon": "󰁂",
+        "type": "action"
+      },
+      "BACKSPACE": {
+        "desc": "prev char",
+        "icon": "󰾺",
+        "type": "action"
+      },
+      "`": {
+        "desc": "go to Mark at char (``) last Mark",
+        "icon": " ",
+        "type": "action"
+      },
+      "TAB": {
+        "desc": "Indent more",
+        "icon": "󰉶",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "record macro at char",
+        "icon": "󰑋",
+        "type": "action"
+      }
+    },
+    "super": {
+      "0": {
+        "desc": "+ display bright",
+        "icon": "󰃞 ",
+        "type": "action"
+      },
+      "1": {
+        "desc": "Switch to workspace [1-8]",
+        "icon": "󰃥",
+        "type": "action"
+      },
+      "9": {
+        "desc": "- display bright",
+        "icon": "󰃞 ",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Close active window",
+        "icon": "",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "Terminal kitty zsh open",
+        "icon": "",
+        "type": "action"
+      },
+      "W": {
+        "desc": "Waybar toggle",
+        "icon": "",
+        "type": "action"
+      },
+      "E": {
+        "desc": "Explorer open",
+        "icon": "",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Screen rotate",
+        "icon": "󰢆",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Screenshot region",
+        "icon": "󰹑",
+        "type": "action"
+      },
+      "G": {
+        "desc": "Floating window toggle",
+        "icon": "󱂬",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Pseudo window toggle",
+        "icon": "󱣵",
+        "type": "action"
+      },
+      "N": {
+        "desc": "V/H window split",
+        "icon": "󰤼",
+        "type": "action"
+      },
+      "F": {
+        "desc": "Fullscreen window toggle",
+        "icon": "󰊓",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Snake window",
+        "icon": "",
+        "type": "action"
+      },
+      "B": {
+        "desc": "Browser open",
+        "icon": "",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Left win focus",
+        "icon": "",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down win focus",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up win focus",
+        "icon": "",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Right win focus",
+        "icon": "",
+        "type": "action"
+      },
+      "M": {
+        "desc": "Lock session",
+        "icon": "󰌾",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Transparent window toggle",
+        "icon": "󱡔",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "Touchpad toggle",
+        "icon": "󰝁",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Obsidian open",
+        "icon": "",
+        "type": "action"
+      },
+      "T": {
+        "desc": "Vifm open",
+        "icon": "",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Yazi open",
+        "icon": "",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Nvim open",
+        "icon": "",
+        "type": "action"
+      },
+      "A": {
+        "desc": "AGS key helper",
+        "icon": "󰌌",
+        "type": "action"
+      },
+      "LEFT": {
+        "desc": "Shrink window",
+        "icon": "",
+        "type": "action"
+      },
+      "DOWN": {
+        "desc": "Grow window",
+        "icon": "",
+        "type": "action"
+      },
+      "UP": {
+        "desc": "Shrink window",
+        "icon": "",
+        "type": "action"
+      },
+      "RIGHT": {
+        "desc": "Grow window",
+        "icon": "",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Gemini quick prompt",
+        "icon": "󰫢",
+        "type": "action"
+      }
+    },
+    "super-shift": {
+      "R": {
+        "desc": "Toggle laptop screen on/off",
+        "icon": "󱎴",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "MPV open clipboard",
+        "icon": "",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Left switch window",
+        "icon": "",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down switch window",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up switch window",
+        "icon": "",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Right switch window",
+        "icon": "",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Obsidian vault toggle",
+        "icon": "󱝕",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "Fzf nvim open",
+        "icon": "󰈞",
+        "type": "action"
+      },
+      "LEFT": {
+        "desc": "Move window",
+        "icon": "",
+        "type": "action"
+      },
+      "DOWN": {
+        "desc": "Move window",
+        "icon": "",
+        "type": "action"
+      },
+      "UP": {
+        "desc": "Move window",
+        "icon": "",
+        "type": "action"
+      },
+      "RIGHT": {
+        "desc": "Move window",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "default": {
+      "SPACE": {
+        "desc": "Symbols layer",
+        "type": "action"
+      }
+    },
+    "obsidian-shift": {
+      "0": {
+        "desc": "/next BOSentence",
+        "icon": "",
+        "type": "action"
+      },
+      "2": {
+        "desc": "play macro at char",
+        "icon": "",
+        "type": "action"
+      },
+      "3": {
+        "desc": "prev word match",
+        "icon": "󰁍",
+        "type": "action"
+      },
+      "4": {
+        "desc": "/EOL",
+        "icon": "",
+        "type": "action"
+      },
+      "5": {
+        "desc": "to bracket pair",
+        "icon": "",
+        "type": "action"
+      },
+      "6": {
+        "desc": "BOL soft",
+        "icon": "~󰩀",
+        "type": "action"
+      },
+      "7": {
+        "desc": "repeat :substitution",
+        "icon": "󰛔",
+        "type": "action"
+      },
+      "8": {
+        "desc": "next word match",
+        "icon": " 󰁔",
+        "type": "action"
+      },
+      "9": {
+        "desc": "/to BOSentence",
+        "icon": "",
+        "type": "action"
+      },
+      "W": {
+        "desc": "next BO Word by spc",
+        "icon": "󰞘 󰾹",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Redo",
+        "icon": "󰑎",
+        "type": "action"
+      },
+      "TAB": {
+        "desc": "Indent less",
+        "icon": "󰉵",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "repeat last macro",
+        "icon": "󰁪 ",
+        "type": "action"
+      },
+      "X": {
+        "desc": "erase backwards",
+        "icon": "󰙂",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Snake at BOL or -",
+        "icon": " 󰩀",
+        "type": "action"
+      },
+      "A": {
+        "desc": "Append at EOL",
+        "icon": "󰨿󰗧",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Delete to EOL",
+        "icon": " 󰨿",
+        "type": "action"
+      },
+      "E": {
+        "desc": "next EO word by spc",
+        "icon": "󰞔 󰾹",
+        "type": "action"
+      },
+      "B": {
+        "desc": "prev BO Word by spc",
+        "icon": "󰞓 󰾹",
+        "type": "action"
+      },
+      "N": {
+        "desc": "prev /match",
+        "icon": "󰁍 󱦞",
+        "type": "action"
+      },
+      "H": {
+        "desc": "to BOL",
+        "icon": "󰩀",
+        "type": "action"
+      },
+      "L": {
+        "desc": "to EOL",
+        "icon": "󰨿",
+        "type": "action"
+      },
+      "J": {
+        "desc": "to Header down",
+        "type": "action"
+      },
+      "K": {
+        "desc": "to Header up",
+        "type": "action"
+      },
+      ";": {
+        "desc": "Command",
+        "icon": "󰆍",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Paste before",
+        "icon": " ",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Insert at BOL",
+        "icon": "󰗧󰩀",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Yank to EOL",
+        "icon": " 󰨿",
+        "type": "action"
+      },
+      "T": {
+        "desc": "unTil prev char",
+        "icon": " 󰮗",
+        "type": "action"
+      },
+      "F": {
+        "desc": "Find prev char",
+        "icon": " 󰮗",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Replace mode",
+        "icon": "",
+        "type": "action"
+      },
+      "G": {
+        "desc": "EOFile",
+        "icon": "󱑣",
+        "type": "action"
+      },
+      "V": {
+        "desc": "Visual line",
+        "icon": "󰩭",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Change to EOL",
+        "icon": " 󰨿",
+        "type": "action"
+      },
+      ",": {
+        "desc": "Indent less",
+        "icon": "󰉵",
+        "type": "action"
+      },
+      ".": {
+        "desc": "Indent more",
+        "icon": "󰉶",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Open line up",
+        "icon": "󱞫 󰇘",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "Insert indented above",
+        "icon": "󰁛",
+        "type": "action"
+      },
+      "BACKSPACE": {
+        "desc": "prev Word by space",
+        "type": "action"
+      },
+      "=": {
+        "desc": "/insert empty line up",
+        "icon": "",
+        "type": "action"
+      },
+      "-": {
+        "desc": "/insert empty line down",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "super-ctrl": {
+      "ENTER": {
+        "desc": "Rofi app launcher",
+        "icon": "󱥫",
+        "type": "action"
+      },
+      "O": {
+        "desc": "fetch Obsidian config repo",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "electron": {
+      "R": {
+        "desc": "ttttt",
+        "type": "action"
+      }
+    },
+    "kitty-ctrl-shift": {
+      "H": {
+        "desc": "Scrollback to nvim",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Yank last cmd output",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "Kitty split",
+        "type": "action"
+      },
+      "T": {
+        "desc": "Tab new open",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Copy to clipboard",
+        "type": "action"
+      },
+      "V": {
+        "desc": "Paste from clipboard",
+        "type": "action"
+      },
+      "BACKSPACE": {
+        "desc": "Restore font size",
+        "type": "action"
+      },
+      "-": {
+        "desc": "Decrease font size",
+        "type": "action"
+      },
+      "=": {
+        "desc": "Increase font size",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Unicode char import",
+        "type": "action"
+      },
+      "META/ESC": {
+        "desc": "Kitty shell open",
+        "type": "action"
+      },
+      "G": {
+        "desc": "View output of last command",
+        "type": "action"
+      },
+      "W": {
+        "desc": "Window close",
+        "type": "action"
+      },
+      "N": {
+        "desc": "New os window",
+        "type": "action"
+      },
+      "E": {
+        "desc": "Click url with keyboard",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Pass selection to program",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Paste from selection",
+        "type": "action"
+      }
+    },
+    "kitty-ctrl": {
+      "D": {
+        "desc": "Directory fzf",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Cmd history fzf",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Close kitty pane",
+        "type": "action"
+      }
+    },
+    "brave-browser": {
+      "SPACE": {
+        "desc": "Brave browser",
+        "type": "action"
+      }
+    },
+    "obsidian-ctrl-alt-shift": {
+      "0": {
+        "desc": "Reset zoom",
+        "icon": "",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Settings",
+        "type": "action"
+      },
+      "W": {
+        "desc": "Weekly note",
+        "type": "action"
+      },
+      "E": {
+        "desc": "tEmplate new note",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Regex pipeline",
+        "type": "action"
+      },
+      "T": {
+        "desc": "Taskboard open",
+        "icon": "",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Import from Zotero",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Open media extended",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Quick switcher",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Command Palette",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Text transporter commands",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Backlink search",
+        "type": "action"
+      },
+      "G": {
+        "desc": "Grep all notes",
+        "type": "action"
+      },
+      "F": {
+        "desc": "Find in this note",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Diff recovery view",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "Zen mode",
+        "type": "action"
+      },
+      "X": {
+        "desc": "Star note toggle",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Capture quick text",
+        "type": "action"
+      },
+      "V": {
+        "desc": "Vault explorer",
+        "type": "action"
+      },
+      "B": {
+        "desc": "Folder explorer",
+        "type": "action"
+      },
+      "N": {
+        "desc": "New note pane",
+        "type": "action"
+      },
+      "M": {
+        "desc": "Move current note",
+        "type": "action"
+      },
+      "-": {
+        "desc": "Zoom out",
+        "type": "action"
+      },
+      "=": {
+        "desc": "Zoom in",
+        "type": "action"
+      }
+    },
+    "obsidian-ctrl": {
+      "1": {
+        "desc": "Bookmark N open",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Save file",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "Undo",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Close current tab",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Left pane focus",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down pane focus",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up pane focus",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Right pane focus",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Jumplist next",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Jumplist prev",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Up scroll N lines",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Up scroll N halfpages",
+        "type": "action"
+      },
+      "E": {
+        "desc": "Down scroll N lines",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Down scroll N halfpages",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Redo N changes",
+        "type": "action"
+      },
+      "F": {
+        "desc": "Down scroll N pages",
+        "type": "action"
+      },
+      "B": {
+        "desc": "Up scroll N pages",
+        "type": "action"
+      },
+      "V": {
+        "desc": "Visual block mode",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Increment by N",
+        "type": "action"
+      },
+      "X": {
+        "desc": "Decrease by N",
+        "type": "action"
+      },
+      "N": {
+        "desc": "Next instance select",
+        "type": "action"
+      },
+      "M": {
+        "desc": "Prev instance select",
+        "type": "action"
+      },
+      ",": {
+        "desc": "Horizontal split pane",
+        "type": "action"
+      },
+      ".": {
+        "desc": "Vertical split pane",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "Reading mode",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Paste last N yanked",
+        "type": "action"
+      },
+      "[": {
+        "desc": "Cycle left sidebar tabs",
+        "type": "action"
+      },
+      "]": {
+        "desc": "Cycle right sidebar tabs",
+        "type": "action"
+      },
+      "=": {
+        "desc": "Next note",
+        "type": "action"
+      },
+      "-": {
+        "desc": "Prev note",
+        "type": "action"
+      },
+      ";": {
+        "desc": "Source / Live preview toggle",
+        "type": "action"
+      },
+      "/": {
+        "desc": "Cycle next tab",
+        "type": "action"
+      },
+      "A": {
+        "desc": "(i: Select grow)",
+        "type": "action"
+      },
+      "SPACE": {
+        "desc": "flash Links",
+        "type": "action"
+      },
+      "'": {
+        "desc": "Edit / Reading view toggle",
+        "type": "action"
+      }
+    },
+    "obsidian-ctrl-shift": {
+      "-": {
+        "desc": "Prev weekly note",
+        "type": "action"
+      },
+      "=": {
+        "desc": "Next weekly note",
+        "type": "action"
+      },
+      "W": {
+        "desc": "move tab to new Window",
+        "type": "action"
+      },
+      "T": {
+        "desc": "undo closed Tab",
+        "type": "action"
+      },
+      "H": {
+        "desc": "swap tab to Left",
+        "type": "action"
+      },
+      "L": {
+        "desc": "swap tab to Right",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down selection expand",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up selection expand",
+        "type": "action"
+      },
+      "N": {
+        "desc": "Select + mouse next",
+        "type": "action"
+      },
+      "M": {
+        "desc": "Select + mouse prev",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Copy / Create block alias",
+        "type": "action"
+      }
+    },
+    "obsidian-alt": {
+      "0": {
+        "desc": "Open media extended",
+        "type": "action"
+      },
+      "1": {
+        "desc": "jump to N tab",
+        "type": "action"
+      },
+      "X": {
+        "desc": "push teXt to",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Checklist cycle",
+        "type": "action"
+      },
+      "V": {
+        "desc": "multiline list",
+        "type": "action"
+      },
+      "B": {
+        "desc": "Bold toggle",
+        "type": "action"
+      },
+      "N": {
+        "desc": "iNline code toggle",
+        "type": "action"
+      },
+      "M": {
+        "desc": "Merge lines",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up line move",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down line move",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Unindent list item",
+        "icon": "",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Indent list item",
+        "icon": "",
+        "type": "action"
+      },
+      "[": {
+        "desc": "toggle Left sidebar",
+        "type": "action"
+      },
+      "]": {
+        "desc": "toggle Right sidebar",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Paste URL into",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Italics toggle",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "YAML view toggle",
+        "type": "action"
+      },
+      "T": {
+        "desc": "view Tabs toggle",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Replace link w text+alias",
+        "type": "action"
+      },
+      "E": {
+        "desc": "Insert tEmplate",
+        "type": "action"
+      },
+      "W": {
+        "desc": "maximize current pane",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "Quick add global",
+        "type": "action"
+      },
+      "A": {
+        "desc": "*list >quote cycle",
+        "type": "action"
+      },
+      "S": {
+        "desc": "case Switch",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Duplicate line",
+        "type": "action"
+      },
+      "F": {
+        "desc": "timestamp media bullet",
+        "type": "action"
+      },
+      "G": {
+        "desc": "local Graph",
+        "type": "action"
+      },
+      "U": {
+        "desc": "pomodoro start global",
+        "type": "action"
+      },
+      "O": {
+        "desc": "obsidian global",
+        "type": "action"
+      },
+      "-": {
+        "desc": "Header lvl down",
+        "type": "action"
+      },
+      "=": {
+        "desc": "Header lvl up",
+        "type": "action"
+      }
+    },
+    "obsidian-ctrl-alt": {
+      "0": {
+        "desc": "swap tab with prev",
+        "type": "action"
+      },
+      "1": {
+        "desc": "place as Nth tab",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Headers to lvl 2",
+        "type": "action"
+      }
+    },
+    "obsidian-alt-shift": {
+      "H": {
+        "desc": "Header decrease level",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down move line w sublists",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up move line w sublists",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Insert in cursors increment",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Checklist todoist toggle|",
+        "type": "action"
+      }
+    },
+    "firefox-alt": {
+      "1": {
+        "desc": "Go to N tab",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Upload file gemini",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Delete left tabs",
+        "icon": "",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Gemini model switch and send",
+        "icon": "",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Reload N tabs",
+        "icon": "",
+        "type": "action"
+      },
+      "P": {
+        "desc": "toggle Pin N tabs",
+        "icon": "",
+        "type": "action"
+      },
+      "M": {
+        "desc": "toggle Mute current tab",
+        "icon": "",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Snake multiple",
+        "icon": "",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Join all tabs here",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "firefox-ctrl-alt-shift": {
+      "I": {
+        "desc": "Browser toolbox",
+        "type": "action"
+      }
+    },
+    "firefox-space": {
+      "SPACE": {
+        "desc": " Space layer",
+        "type": "action"
+      }
+    },
+    "pureref-space": {
+      "A": {
+        "desc": "+",
+        "type": "action"
+      },
+      "S": {
+        "desc": "-",
+        "type": "action"
+      },
+      "D": {
+        "desc": "[",
+        "type": "action"
+      },
+      "F": {
+        "desc": "]",
+        "type": "action"
+      },
+      "G": {
+        "desc": "*",
+        "type": "action"
+      },
+      "H": {
+        "desc": "_",
+        "type": "action"
+      },
+      "J": {
+        "desc": "(",
+        "type": "action"
+      },
+      "K": {
+        "desc": ")",
+        "type": "action"
+      },
+      "L": {
+        "desc": "=",
+        "type": "action"
+      },
+      ";": {
+        "desc": "RIGHT",
+        "type": "action"
+      },
+      ".": {
+        "desc": ">",
+        "type": "action"
+      },
+      ",": {
+        "desc": "<",
+        "type": "action"
+      },
+      "M": {
+        "desc": "'",
+        "type": "action"
+      },
+      "N": {
+        "desc": "`",
+        "type": "action"
+      },
+      "B": {
+        "desc": "~",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "@",
+        "type": "action"
+      },
+      "W": {
+        "desc": "#",
+        "type": "action"
+      },
+      "E": {
+        "desc": "\"",
+        "type": "action"
+      },
+      "R": {
+        "desc": "%",
+        "type": "action"
+      },
+      "T": {
+        "desc": "!",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "^",
+        "type": "action"
+      },
+      "U": {
+        "desc": "{",
+        "type": "action"
+      },
+      "O": {
+        "desc": "&",
+        "type": "action"
+      },
+      "I": {
+        "desc": "}",
+        "type": "action"
+      },
+      "P": {
+        "desc": "$",
+        "type": "action"
+      },
+      "/": {
+        "desc": "?",
+        "type": "action"
+      }
+    },
+    "pureref": {
+      "SPACE": {
+        "desc": "Symbols layer",
+        "type": "action"
+      }
+    },
+    "nvim-shift": {
+      "0": {
+        "desc": "/next BOSentence",
+        "icon": "",
+        "type": "action"
+      },
+      "2": {
+        "desc": "play macro at char",
+        "icon": "",
+        "type": "action"
+      },
+      "3": {
+        "desc": "prev word match",
+        "icon": "󰁍",
+        "type": "action"
+      },
+      "4": {
+        "desc": "/EOL",
+        "icon": "",
+        "type": "action"
+      },
+      "5": {
+        "desc": "to bracket pair",
+        "icon": "",
+        "type": "action"
+      },
+      "6": {
+        "desc": "BOL soft",
+        "icon": "~󰩀",
+        "type": "action"
+      },
+      "7": {
+        "desc": "repeat :substitution",
+        "icon": "󰛔",
+        "type": "action"
+      },
+      "8": {
+        "desc": "next word match",
+        "icon": " 󰁔",
+        "type": "action"
+      },
+      "9": {
+        "desc": "/to BOSentence",
+        "icon": "",
+        "type": "action"
+      },
+      "W": {
+        "desc": "next BOWord by spc",
+        "icon": "󰞘 󰾹",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Redo",
+        "icon": "󰑎",
+        "type": "action"
+      },
+      "TAB": {
+        "desc": "Indent less",
+        "icon": "󰉵",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "repeat last macro",
+        "icon": "󰁪 ",
+        "type": "action"
+      },
+      "X": {
+        "desc": "erase backwards",
+        "icon": "󰙂",
+        "type": "action"
+      },
+      "S": {
+        "desc": "Snake at BOL or -",
+        "icon": " 󰩀",
+        "type": "action"
+      },
+      "A": {
+        "desc": "Append at EOL",
+        "icon": "󰨿󰗧",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Delete to EOL",
+        "icon": " 󰨿",
+        "type": "action"
+      },
+      "E": {
+        "desc": "next EOWord by spc",
+        "icon": "󰞔 󰾹",
+        "type": "action"
+      },
+      "B": {
+        "desc": "prev BO Word by spc",
+        "icon": "󰞓 󰾹",
+        "type": "action"
+      },
+      "N": {
+        "desc": "prev /match",
+        "icon": "󰁍 󱦞",
+        "type": "action"
+      },
+      "H": {
+        "desc": "to BOL",
+        "icon": "󰩀",
+        "type": "action"
+      },
+      "L": {
+        "desc": "to EOL",
+        "icon": "󰨿",
+        "type": "action"
+      },
+      ";": {
+        "desc": "Command",
+        "icon": "󰆍",
+        "type": "action"
+      },
+      "P": {
+        "desc": "Paste before",
+        "icon": " ",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Insert at BOL",
+        "icon": "󰗧󰩀",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Yank to EOL",
+        "icon": " 󰨿",
+        "type": "action"
+      },
+      "T": {
+        "desc": "Till prev char",
+        "icon": " 󰮗",
+        "type": "action"
+      },
+      "F": {
+        "desc": "Find prev char",
+        "icon": " 󰮗",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Replace mode",
+        "icon": "",
+        "type": "action"
+      },
+      "G": {
+        "desc": "EOFile",
+        "icon": "󱑣",
+        "type": "action"
+      },
+      "V": {
+        "desc": "Visual line",
+        "icon": "󰩭",
+        "type": "action"
+      },
+      "C": {
+        "desc": "Change to EOL",
+        "icon": " 󰨿",
+        "type": "action"
+      },
+      ",": {
+        "desc": "Indent less",
+        "icon": "󰉵",
+        "type": "action"
+      },
+      ".": {
+        "desc": "Indent more",
+        "icon": "󰉶",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Open line up",
+        "icon": "󱞫 󰇘",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "Insert indented above",
+        "icon": "󰁛",
+        "type": "action"
+      },
+      "BACKSPACE": {
+        "desc": "prev Word by space",
+        "type": "action"
+      },
+      "=": {
+        "desc": "/insert empty line up",
+        "icon": "",
+        "type": "action"
+      },
+      "-": {
+        "desc": "/insert empty line down",
+        "icon": "",
+        "type": "action"
+      },
+      "`": {
+        "desc": "switch case",
+        "icon": "~",
+        "type": "action"
+      },
+      "M": {
+        "desc": "Multicursor obj",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "nvim-space": {
+      "0": {
+        "desc": "(r) last yank",
+        "icon": "",
+        "type": "action"
+      },
+      "A": {
+        "desc": "(r) x11 clipboard",
+        "icon": "+",
+        "type": "action"
+      },
+      "S": {
+        "desc": "(r) last small del",
+        "icon": "-",
+        "type": "action"
+      },
+      "D": {
+        "desc": "",
+        "icon": "[",
+        "type": "action"
+      },
+      "F": {
+        "desc": "",
+        "icon": "]",
+        "type": "action"
+      },
+      "G": {
+        "desc": "(r) x11 primary",
+        "icon": "*",
+        "type": "action"
+      },
+      "H": {
+        "desc": "(r) blackhole reg",
+        "icon": "_",
+        "type": "action"
+      },
+      "J": {
+        "desc": "",
+        "icon": "(",
+        "type": "action"
+      },
+      "K": {
+        "desc": "",
+        "icon": ")",
+        "type": "action"
+      },
+      "L": {
+        "desc": "(r) exp reg",
+        "icon": "=",
+        "type": "action"
+      },
+      ";": {
+        "desc": "(r) last cmd",
+        "icon": "",
+        "type": "action"
+      },
+      "B": {
+        "desc": "",
+        "icon": "~",
+        "type": "action"
+      },
+      "N": {
+        "desc": "",
+        "icon": "`",
+        "type": "action"
+      },
+      "M": {
+        "desc": "",
+        "icon": "'",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "",
+        "icon": "@",
+        "type": "action"
+      },
+      "W": {
+        "desc": "(r) alt filename",
+        "icon": "#",
+        "type": "action"
+      },
+      "E": {
+        "desc": "(r) unnamed",
+        "icon": "\"",
+        "type": "action"
+      },
+      "R": {
+        "desc": "(r) curr filename",
+        "icon": "%",
+        "type": "action"
+      },
+      "T": {
+        "desc": "",
+        "icon": "!",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "",
+        "icon": "^",
+        "type": "action"
+      },
+      "U": {
+        "desc": "",
+        "icon": "{",
+        "type": "action"
+      },
+      "I": {
+        "desc": "",
+        "icon": "}",
+        "type": "action"
+      },
+      "O": {
+        "desc": "",
+        "icon": "&",
+        "type": "action"
+      },
+      "P": {
+        "desc": "",
+        "icon": "$",
+        "type": "action"
+      },
+      ",": {
+        "desc": "",
+        "icon": "<",
+        "type": "action"
+      },
+      ".": {
+        "desc": "(r) last insertion",
+        "icon": ">",
+        "type": "action"
+      },
+      "/": {
+        "desc": "(r) last /pattern",
+        "icon": "?",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "",
+        "icon": "",
+        "type": "action"
+      },
+      "X": {
+        "desc": "",
+        "icon": "",
+        "type": "action"
+      },
+      "C": {
+        "desc": "",
+        "icon": "",
+        "type": "action"
+      },
+      "V": {
+        "desc": "",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "nvim-ctrl-alt-shift": {
+      "J": {
+        "desc": "Zellij focus down",
+        "icon": "󱇙 ",
+        "type": "action"
+      },
+      "A": {
+        "desc": "harpoon",
+        "icon": "f",
+        "type": "action"
+      },
+      "S": {
+        "desc": "harpoon",
+        "icon": "i",
+        "type": "action"
+      },
+      "D": {
+        "desc": "harpoon",
+        "icon": "t",
+        "type": "action"
+      },
+      "F": {
+        "desc": "harpoon",
+        "icon": "o",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Zellij focus left",
+        "icon": "󱇙 ",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Zellij focus right",
+        "icon": "󱇙 ",
+        "type": "action"
+      },
+      "E": {
+        "desc": "harpoon Explorer",
+        "icon": "󱂬 󰛢",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Zellij focus up",
+        "icon": "󱇙 ",
+        "type": "action"
+      },
+      "I": {
+        "desc": "Portal harpoon",
+        "icon": "󰛢",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Jumplist floating",
+        "icon": "󱂬 󱡠",
+        "type": "action"
+      },
+      "Q": {
+        "desc": "zellijj Quit pane",
+        "icon": "",
+        "type": "action"
+      },
+      "W": {
+        "desc": "zellij session manager",
+        "icon": "",
+        "type": "action"
+      },
+      "P": {
+        "desc": "zellij new Pane",
+        "icon": "",
+        "type": "action"
+      },
+      "N": {
+        "desc": "zellij V/H split",
+        "icon": "",
+        "type": "action"
+      },
+      "U": {
+        "desc": "zellij Scrollback nvim",
+        "icon": "",
+        "type": "action"
+      },
+      "B": {
+        "desc": "zellij scrollBack",
+        "icon": "",
+        "type": "action"
+      },
+      "X": {
+        "desc": "zellij detach",
+        "icon": "",
+        "type": "action"
+      },
+      "R": {
+        "desc": "zellij Resize",
+        "icon": "",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "zellij floating pane",
+        "icon": "",
+        "type": "action"
+      },
+      "T": {
+        "desc": "zellij next Tab",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "nvim-ctrl-alt": {
+      "J": {
+        "desc": "Addskip cursor down",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Addskip cursor up",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "nvim-alt": {
+      "H": {
+        "desc": "Left tab",
+        "icon": "",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Right tab",
+        "icon": "",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Move line down",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Move line up",
+        "icon": "",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "select all",
+        "icon": "",
+        "type": "action"
+      },
+      "B": {
+        "desc": "comment Block",
+        "icon": "",
+        "type": "action"
+      },
+      "N": {
+        "desc": "comment liNe",
+        "icon": "",
+        "type": "action"
+      },
+      "M": {
+        "desc": "nohighlights",
+        "icon": "",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Undotree",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "nvim-z": {
+      "Z": {
+        "desc": "to screen middle",
+        "icon": "",
+        "type": "action"
+      },
+      "T": {
+        "desc": "to screen Top",
+        "icon": "",
+        "type": "action"
+      },
+      "B": {
+        "desc": "to screen Bottom",
+        "icon": "",
+        "type": "action"
+      },
+      "M": {
+        "desc": "fold more / fold all",
+        "icon": "",
+        "type": "action"
+      },
+      "R": {
+        "desc": "fold less / unfold all",
+        "icon": "",
+        "type": "action"
+      },
+      "A": {
+        "desc": "toggle fold / block fold",
+        "icon": "",
+        "type": "action"
+      },
+      "E": {
+        "desc": "right cursor",
+        "icon": "",
+        "type": "action"
+      },
+      "S": {
+        "desc": "left cursor",
+        "icon": "",
+        "type": "action"
+      },
+      "I": {
+        "desc": "toggle folding",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "nvim-v": {
+      "I": {
+        "desc": "inside (Insert visual) ",
+        "icon": "",
+        "type": "action"
+      },
+      "A": {
+        "desc": "around (Append visual)",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "super-ctrl-alt-shift": {
+      "ENTER": {
+        "desc": "Open Zellij local session",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "kitty-ctrl-alt-shift": {
+      "H": {
+        "desc": " Zellij focus left",
+        "icon": "󱇙 ",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Zellij focus down",
+        "icon": "󱇙 ",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Zellij focus up",
+        "icon": "󱇙 ",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Zellij focus right",
+        "icon": "󱇙 ",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "Floating panel Zellij",
+        "icon": "",
+        "type": "action"
+      },
+      "U": {
+        "desc": "Scrollback Zellij",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "nvim-alt-shift": {
+      "U": {
+        "desc": "telescope Undo",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "firefox-alt-shift": {
+      "S": {
+        "desc": "Snake switch tab",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "nvim-g": {
+      "G": {
+        "desc": "BOFile",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "yazi-shift": {
+      "Z": {
+        "desc": "Zip extract file",
+        "icon": "",
+        "type": "action"
+      },
+      "D": {
+        "desc": "Delete permanently",
+        "icon": "",
+        "type": "action"
+      },
+      "S": {
+        "desc": "grep search",
+        "icon": "",
+        "type": "action"
+      },
+      ",": {
+        "desc": "sort",
+        "icon": "",
+        "type": "action"
+      },
+      "Y": {
+        "desc": "unyank",
+        "icon": "",
+        "type": "action"
+      },
+      "X": {
+        "desc": "unyank",
+        "icon": "",
+        "type": "action"
+      },
+      "O": {
+        "desc": "Open interactive",
+        "icon": "",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "open interactive",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "Up 5",
+        "icon": "",
+        "type": "action"
+      },
+      "J": {
+        "desc": "Down 5",
+        "icon": "",
+        "type": "action"
+      },
+      "V": {
+        "desc": "Visual mode unset",
+        "icon": "",
+        "type": "action"
+      },
+      "U": {
+        "desc": "mount device",
+        "icon": "",
+        "type": "action"
+      },
+      "M": {
+        "desc": "permissions leader",
+        "icon": "",
+        "type": "action"
+      },
+      "R": {
+        "desc": "Recyclebin menu",
+        "icon": "",
+        "type": "action"
+      },
+      "G": {
+        "desc": "EODirectory",
+        "icon": "",
+        "type": "action"
+      },
+      "H": {
+        "desc": "Left tab",
+        "icon": "",
+        "type": "action"
+      },
+      "L": {
+        "desc": "Right tab",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "yazi-ctrl": {
+      "S": {
+        "desc": "cancel Search",
+        "icon": "",
+        "type": "action"
+      },
+      "A": {
+        "desc": "select All",
+        "icon": "",
+        "type": "action"
+      },
+      "R": {
+        "desc": "invert selection",
+        "icon": "",
+        "type": "action"
+      },
+      "D": {
+        "desc": "jump h page down",
+        "icon": "",
+        "type": "action"
+      },
+      "C": {
+        "desc": "close",
+        "icon": "",
+        "type": "action"
+      },
+      "Z": {
+        "desc": "suspend",
+        "icon": "",
+        "type": "action"
+      },
+      "ENTER": {
+        "desc": "open kitty here",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "obsidian-space": {
+      "J": {
+        "desc": "new bulletline below",
+        "icon": "",
+        "type": "action"
+      },
+      "K": {
+        "desc": "new bulletpoint above",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "yazi-space": {
+      "B": {
+        "desc": "key helper",
+        "icon": "",
+        "type": "action"
+      }
+    },
+    "yazi-g": {
+      "G": {
+        "desc": "BODirectory",
+        "icon": "",
+        "type": "action"
+      },
+      "C": {
+        "desc": " ~/.config",
+        "icon": "",
+        "type": "action"
+      },
+      "D": {
+        "desc": "~/Downloads",
+        "icon": "",
+        "type": "action"
+      },
+      "H": {
+        "desc": "~/",
+        "icon": "",
+        "type": "action"
+      }
+    }
+  }
+}

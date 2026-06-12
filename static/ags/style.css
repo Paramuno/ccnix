@@ -1,0 +1,218 @@
+/* GTK theme reset defaults */
+* {
+    background-image: none;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    transition: none;
+}
+window {
+    background-color: transparent;
+}
+
+.window-container {
+    background-color: transparent; 
+    padding: 8px;
+    border: none;
+}
+
+/* Base Keycap Settings */
+.keycap {
+    min-width: 110px; 
+    min-height: 65px;
+    padding: 3px 3px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); 
+    
+    /* CRITICAL NIXOS Strip the native GTK system theme */
+    background-image: none;
+    /* border: none; */
+border: 2px solid transparent;
+    outline: none;
+    transition: none;
+}
+
+/* --- DYNAMIC LAYER COLOR CODING --- */
+
+/* 1. Base Unbound Keys (Always dark transparent, except in Super) */
+.keycap.unbound {
+    background-color: rgba(30, 30, 46, 0.3); 
+    color: #a6adc8; 
+}
+
+/* 2. Normal Grid (Gray) */
+.layer-none .keycap.action, .layer-none .keycap.modifier {
+    background-color: rgba(63, 63, 79, 1);
+    color: #ffffff;
+}
+
+/* 3. SHIFT Layer (Blue) */
+.layer-shift .keycap.action, .layer-shift .keycap.modifier {
+    background-color: rgba(46, 91, 124, 1);
+    color: #ffffff;
+}
+
+/* 4. CTRL Layer (Red) */
+.layer-ctrl .keycap.action, .layer-ctrl .keycap.modifier {
+    background-color: rgba(190, 50, 50, 1);
+    color: #ffffff;
+}
+
+/* 5. ALT Layer (Yellow) */
+.layer-alt .keycap.action, .layer-alt .keycap.modifier {
+    background-color: rgba(220, 180, 40, 1);
+    color: #111111; /* Dark text for contrast against yellow */
+    
+}
+
+/* 6. CTRL + SHIFT Layer (Purple) */
+.layer-ctrl-shift .keycap.action, .layer-ctrl-shift .keycap.modifier {
+    background-color: rgba(130, 60, 180, 1);
+    color: #ffffff;
+}
+
+/* 7. ALT + SHIFT Layer (Green) */
+.layer-alt-shift .keycap.action, .layer-alt-shift .keycap.modifier {
+    background-color: rgba(43, 160, 101, 1);
+    color: #ffffff;
+}
+
+/* 8. CTRL + ALT Layer (Orange) */
+.layer-ctrl-alt .keycap.action, .layer-ctrl-alt .keycap.modifier {
+    background-color: rgba(210, 110, 30, 1);
+    color: #ffffff;
+}
+
+/* 9. CTRL + ALT + SHIFT Layer (Light Gray) */
+.layer-ctrl-alt-shift .keycap.action, .layer-ctrl-alt-shift .keycap.modifier {
+    background-color: rgba(200, 180, 170, 1);
+    color: #111111; /* Dark text for contrast against light gray */
+}
+
+/* 10. SUPER (GLOBAL) - Full Grid Inversion */
+.layer-super .keycap {
+    /* Invert every single keycap to pale light gray */
+    background-color: #e0e0e0;
+    color: #000000;
+}
+.layer-super .keycap.unbound {
+    background-color: rgba(30, 30, 46, 0.3); 
+  /* Unbound keys get slightly darker grey text so mapped keys pop */
+    color: #777777; 
+}
+.layer-super .keycap.action, .layer-super .keycap.modifier {
+    /* Mapped Super keys turn pure white with bold black text */
+    background-color: #ffffff; 
+    color: #000000;
+}
+
+/* --- CHORD LAYERS --- */
+
+/* SPACE */
+.layer-space .keycap.action, .layer-space .keycap.modifier {
+    background-color: rgba(30, 160, 180, 1);
+    color: #ffffff;
+}
+
+/* Z Chord */
+.layer-z .keycap.action, .layer-z .keycap.modifier {
+    background-color: rgba(220, 120, 80, 1);
+    color: #ffffff;
+}
+
+/* S Chord */
+.layer-s .keycap.action, .layer-s .keycap.modifier {
+    background-color: rgba(200, 80, 140, 1);
+    color: #ffffff;
+}
+
+/* G Chord */
+.layer-g .keycap.action, .layer-g .keycap.modifier {
+    background-color: rgba(50, 170, 120, 1);
+    color: #ffffff;
+}
+
+/* V Chord */
+.layer-v .keycap.action, .layer-v .keycap.modifier {
+    background-color: rgba(140, 100, 180, 1);
+    color: #ffffff;
+}
+
+
+/* --- ACTIVE MODIFIER & CHORD HIGHLIGHTS --- */
+/* Illuminates the physical key when its layer is being held */
+
+/* --- ACTIVE MODIFIER & CHORD HIGHLIGHTS (JS Driven) --- */
+
+.key-shift_l.active-mod, .key-shift_r.active-mod { border-color: rgba(46, 91, 124, 1); }
+.key-ctrl_l.active-mod, .key-ctrl_r.active-mod   { border-color: rgba(190, 50, 50, 1); }
+.key-alt_l.active-mod, .key-alt_r.active-mod     { border-color: rgba(220, 180, 40, 1); }
+.key-super.active-mod                            { border-color: #ffffff; }
+
+.key-space.active-mod { border-color: rgba(30, 160, 180, 1); }
+.key-s.active-mod     { border-color: rgba(200, 80, 140, 1); }
+.key-g.active-mod     { border-color: rgba(50, 170, 120, 1); }
+.key-z.active-mod     { border-color: rgba(220, 120, 80, 1); }
+.key-v.active-mod     { border-color: rgba(140, 100, 180, 1); }
+
+/* ------------------------------------------- *//* ------------------------------------------- */
+
+/* Center the vertical stack of icon + text */
+.key-content-stack {
+    padding-top: 10px; /* Adjust to move the entire center unit up/down */
+    padding-bottom: 5px;
+}
+
+.key-id {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: monospace;
+}
+.key-icon {
+    font-size: 24px; /* Massive size to fill the void */
+    font-family: "JetBrainsMono NF", monospace; /* Your precise Nerd Font */
+    margin-top: 0px; /* Pulls it up slightly so it aligns with the ID */
+}
+
+.key-desc {
+font-size: 12px;
+    margin-top: 26px;
+    min-height: 22px;
+  }
+
+/* --- The Scaled Stagger Mechanics --- */
+.key-backspace { min-width: 160px; }
+.key-tab { min-width: 120px; } 
+.key-enter { min-width: 140px; } 
+.key-capslock { min-width: 140px; } 
+.key-\# { min-width: 100px; } 
+.key-shift_l { min-width: 100px; } 
+.key-shift_r { min-width: 220px; } 
+.key-ctrl_l, .key-ctrl_r, .key-super, .key-alt_l, .key-alt_r, .key-fn, .key-menu { 
+    min-width: 100px; 
+}
+.key-space { min-width: 450px; } 
+.key-cmod { min-width: 75px; } 
+
+/* Dynamic Window Title Display */
+.window-title-display {
+    color: #a6adc8; 
+    font-size: 13px;
+    font-weight: bold;
+    font-family: monospace;
+    font-style: italic;
+    background-color: rgba(17, 17, 27, 1); 
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+/* Dynamic Modifier Status Display */
+.mod-status-display {
+    font-size: 13px;
+    font-weight: bold;
+    font-family: monospace;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+}

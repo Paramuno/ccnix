@@ -1,0 +1,27 @@
+{
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "layer": "top", // Tells Waybar to sit on top of other windows
+  "exclusive": false, // CRITICAL: Prevents Waybar from re
+  "height": 37, // Waybar height (to be removed for auto height)
+  "margin-left": 10, // Nudges the entire bar 10 pixels to the right
+  "margin-right": 10,
+  "spacing": 4, // Gaps between modules (4px)
+  "include": [
+    "~/.config/waybar/modules.json"
+  ],
+  "modules-left": [
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "mpd",
+    "pulseaudio",
+    "network",
+    "tray",
+    "custom/vault",
+    "battery",
+    "clock",
+  ]
+}

@@ -1,0 +1,150 @@
+;; 1. global settings (must be first)
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd yes ;; linux exclusive
+)
+
+;; 2. Source keys (Physical layout)
+(defsrc
+  =    q    w    e    r    t    y    u    i    o    p    [    ]  \
+  caps a    s    d    f    g    h    j    k    l    ;
+  z    x    c    v    b    n    m    ,    .    /
+  spc  ralt rctl ;; Dell laptop has this physical key instead of menu
+)
+
+;; 3. Default Layer (Normal typing)
+(deflayer default
+  =     q    w      e       r    t      y    u    i    o    p  @brako @brakc @pipe
+  @esc      a    @s_mod d       f    @g_mod h    j    k    l    _
+  @z_mod    x    c      @v_mod  b    n      m    ,    .    /
+  @spc_mod  @leader     @circled
+)
+
+;; tudiff remap
+(deflayer tudiff
+  =     q    w      e       r    t      y       u    i    o       p  @brako @brakc @pipe
+  @esc      a    @s_mod d       f    @g_mod @h_diff j    k    @l_diff _
+  @z_mod    x    c      @v_mod  b    n      m       ,    .    /
+  @spc_mod  @leader     @circled
+)
+
+;; 4. Circled Layer (Unicode characters)
+(deflayer circled-layer
+  _     @cq  @cw  @ce  @cr  @ct  @cy  @cu  @ci  @co  @cp  _ _ _
+  _     @ca  @cs  @cd  @cf  @cg  @ch  @cj  @ck  @cl  _
+  @cz   @cx  @cc  @cv  @cb  @cn  @cm  _    _    _
+  @cspc _ _
+)
+
+;; 5. Symbols Layer (Home row symbols)
+(deflayer symbols
+  _ @s_at   @s_hash @s_dqt  @s_perc  @s_excl @s_circ @s_crl_o @s_crl_c @s_amp @s_dlr   _ _ _
+  _ @s_plus @s_min  @s_sq_o @s_sq_c  @s_ast  @s_und  @s_par_o @s_par_c @s_eq  @s_mover
+    @s_left @s_down @s_up   @s_right @s_tild @s_grv  @s_sqt   @s_croco @s_crocc @s_qmark
+  _ _ _
+)
+
+;; 6. Aliases (Definitions)
+(defalias
+  circled (layer-toggle circled-layer)
+;; Meta key on Linux gives conflict with Hypr lader Waybar script
+  esc (tap-hold 200 200 esc (multi lctl lalt lsft))
+  leader (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0xa4) ;; ¤ Lvim Leader
+
+  ;; espansopipe (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x7C)
+  ;; Key Swaps
+  pipe (fork S-\ (unshift \) (lsft rsft))
+  ;; plus (fork S-= (unshift =) (lsft rsft))
+  brako (fork S-[ (unshift [) (lsft rsft))
+  brakc (fork S-] (unshift ]) (lsft rsft))
+
+  ;; Outer fork: If Super (lmet/rmet) is held -> send plain 'h' (Hyprland sees Super + h)
+  ;; Inner fork: If Shift (lsft/rsft) is held -> send 'left' (tudiff switches to left panel)
+  ;; Fallback: If no modifiers are held -> send 'ret' (tudiff opens/toggles file)
+  h_diff (fork (fork ret left (lsft rsft)) h (lmet rmet))
+  l_diff (fork (fork ret right (lsft rsft)) l (lmet rmet))
+
+  ;; SPACE: Tap types space. Hold triggers the Kanata symbols layer AND sends F13 to Hyprland!
+  spc_mod (tap-hold 200 200 spc (multi f13 (layer-toggle symbols)))
+
+  ;; AGS keyboard helper key holders through dummy functions
+  ;; Tap types the letter, Hold sends a dummy Function key to Hyprland
+  z_mod (tap-hold 200 200 z f14)
+  s_mod (tap-hold 200 200 s f15)
+  g_mod (tap-hold 200 200 g f16)
+  v_mod (tap-hold 200 200 v f17)
+
+
+  ;; Symbol Aliases
+  ;; Row 1
+  s_at     S-2     ;; @
+  s_perc   S-5     ;; %
+  s_dqt    S-'     ;; " (Double Quote)
+  s_sqt    '       ;; ' (Single Quote)
+  s_excl   S-1     ;; !
+  s_circ   S-6     ;; ^
+  s_crl_o  S-[     ;; { (Curly Open)
+  s_crl_c  S-]     ;; } (Curly Close)
+  s_amp    S-7     ;; &
+  s_dlr    S-4     ;; $
+
+  ;; Row 2
+  s_plus   S-=     ;; +
+  s_hash   S-3     ;; #
+  s_sq_o   [       ;; [ (Square Open)
+  s_sq_c   ]       ;; ] (Square Close)
+  s_ast    S-8     ;; *
+  s_und    S--     ;; _ (Underscore)
+  s_par_o  S-9     ;; ( (Paren Open)
+  s_par_c  S-0     ;; ) (Paren Close)
+  s_eq     =       ;; =
+  s_mover  right   ;; move right to get out of brackets
+
+  ;; Row 3
+  s_left  (unicode U+2190) ;; ←
+  s_down  (unicode U+2193) ;; ↓
+  s_up    (unicode U+2191) ;; ↑
+  s_right (unicode U+2192) ;; →
+  s_tild   S-grv   ;; ~ (Tilde)
+  s_grv    grv     ;; ` (Backtick)
+  s_min    -       ;; - (Minus)          
+  s_croco  S-,     ;; < (Croc open) * Shift is open now
+  s_crocc  S-.     ;; > (Croc close)
+  s_qmark  S-/     ;; ? (Questioon mark)
+
+  ;; Row 1 (QWERTYUIOP) We use a command because Obsidian wasnt recognizing the event
+  cq (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E0)  ;; q -> ⓠ (U+24E0)
+  cw (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E6)  ;; w -> ⓦ (U+24E6)
+  ce (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D4)  ;; e -> ⓔ (U+24D4)
+  cr (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E1)  ;; r -> ⓡ (U+24E1)
+  ct (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E3)  ;; t -> ⓣ (U+24E3)
+  cy (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E8)  ;; y -> ⓨ (U+24E8)
+  cu (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E4)  ;; u -> ⓤ (U+24E4)
+  ci (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D8)  ;; i -> ⓘ (U+24D8)
+  co (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024DE)  ;; o -> ⓞ (U+24DE)
+  cp (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024DF)  ;; p -> ⓟ (U+24DF)
+
+  ;; Row 2 (ASDFGHJKL)
+  ca (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D0)  ;; a -> ⓐ (U+24D0)
+  cs (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E2)  ;; s -> ⓢ (U+24E2)
+  cd (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D3)  ;; d -> ⓓ (U+24D3)
+  cf (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D5)  ;; f -> ⓕ (U+24D5)
+  cg (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D6)  ;; g -> ⓖ (U+24D6)
+  ch (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D7)  ;; h -> ⓗ (U+24D7)
+  cj (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D9)  ;; j -> ⓙ (U+24D9)
+  ck (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024DA)  ;; k -> ⓚ (U+24DA)
+  cl (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024DB)  ;; l -> ⓛ (U+24DB)
+
+  ;; Row 3 (ZXCVBNM)
+  cz (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E9)  ;; z -> ⓩ (U+24E9)
+  cx (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E7)  ;; x -> ⓧ (U+24E7)
+  cc (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D2)  ;; c -> ⓒ (U+24D2)
+  cv (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024E5)  ;; v -> ⓥ (U+24E5)
+  cb (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024D1)  ;; b -> ⓑ (U+24D1)
+  cn (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024DD)  ;; n -> ⓝ (U+24DD)
+  cm (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0x10024DC)  ;; m -> ⓜ (U+24DC)
+
+  ;; Row 4 (Space)
+  cspc (cmd sudo -u mar env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 wtype -k 0xa4);; spc -> ¤ (U+00A4)
+
+ )
