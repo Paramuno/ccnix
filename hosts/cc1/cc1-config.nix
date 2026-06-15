@@ -58,20 +58,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    # d-spy
-    google-chrome
-    vlc
-    libreoffice
-    blender
-    davinci-resolve
-    reaper
-    vcv-rack
-    arduino
-    processing
-    puredata
-    audacity
-    bitwig-studio
-    supercollider-with-sc3-plugins
     ollama
   ];
 }
