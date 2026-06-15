@@ -10,9 +10,4 @@ let
   ];
 in
 {
-  # Define which keys can decrypt which files.
-  # Both you (the user) and the target machine must be included.
-  # "cloudflare-api-token.age".publicKeys = [
-  # ];
-  # "obsidian-vault-password.age".publicKeys = users ++ systems;
 }

@@ -83,10 +83,17 @@
       # COLMENA NODE SETUP
       # ==========================================
 
-      # nixosConfigurations.<name> — attr = node key
-      nixosConfigurations = lib.mapAttrs (name: node: mkNode.build (node // { inherit name; })) (
-        byType "nixos"
-      );
+      nixosConfigurations =
+        lib.mapAttrs (name: node: mkNode.build (node // { inherit name; })) (byType "nixos")
+        // {
+          installer = lib.nixosSystem {
+            specialArgs = { inherit inputs; };
+            modules = [
+              inputs.disko.nixosModules.disko
+              ./hosts/installer/installer.nix
+            ];
+          };
+        };
 
       # homeConfigurations."<user>@<name>" — preserves existing flake ref
       homeConfigurations = lib.mapAttrs' (

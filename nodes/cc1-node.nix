@@ -6,6 +6,7 @@
 
   modules = [
     ../hosts/cc1/cc1-config.nix
+    ../hosts/cc1/disko.nix
     ../hosts/cc1/hardware-configuration.nix
   ];
 

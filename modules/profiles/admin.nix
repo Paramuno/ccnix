@@ -19,6 +19,10 @@
   users.users.root.openssh.authorizedKeys.keys = [
   ];
 
+  users.users.admin = {
+    hashedPasswordFile = "/etc/admin.pass";
+  };
+
   systemd.tmpfiles.rules = [
     "d /home/admin 0700 admin users - -"
   ];

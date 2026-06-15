@@ -1,0 +1,2 @@
+secrets/hostkeys/*
+!secrets/hostkeys/*.pub

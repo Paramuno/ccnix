@@ -3,13 +3,13 @@
     disk = {
       cosmos-disk = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/disk/by-id/a5f1492c-f60d-489c-9902-91e545dd3c38";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
               type = "EF00";
-              size = "512M";
+              size = "1G";
               content = {
                 type = "filesystem";
                 format = "vfat";
