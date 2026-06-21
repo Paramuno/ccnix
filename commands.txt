@@ -1,6 +1,6 @@
 mkdir -p /tmp/seed/etc
-nix run nixpkgs#mkpasswd -- -m yescrypt | tr -d '\n' > /tmp/seed/etc/admin.pass
-nix run nixpkgs#mkpasswd -- -m yescrypt | tr -d '\n' > /tmp/seed/etc/alle.pass
+nix --extra-experimental-features "nix-command flakes" run nixpkgs#mkpasswd -- -m yescrypt | tr -d '\n' > /tmp/seed/etc/admin.pass
+nix --extra-experimental-features "nix-command flakes" run nixpkgs#mkpasswd -- -m yescrypt | tr -d '\n' > /tmp/seed/etc/alle.pass
 chmod 600 /tmp/seed/etc/*.pass
 
 
