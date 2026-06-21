@@ -44,6 +44,9 @@
 
       nodes = {
         cc1 = import ./nodes/cc1-node.nix;
+        cc2 = import ./nodes/cc2-node.nix;
+        cc3 = import ./nodes/cc3-node.nix;
+        cc4 = import ./nodes/cc4-node.nix;
       };
 
       mkNode = import ./lib/mkNode.nix { inherit inputs; };
