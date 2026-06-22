@@ -59,7 +59,6 @@
     vlc
     libreoffice
     blender
-    davinci-resolve
     reaper
     vcv-rack
     arduino
