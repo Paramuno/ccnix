@@ -55,5 +55,18 @@
 
   environment.systemPackages = with pkgs; [
     ollama
+    google-chrome
+    vlc
+    libreoffice
+    blender
+    davinci-resolve
+    reaper
+    vcv-rack
+    arduino
+    processing
+    puredata
+    audacity
+    bitwig-studio
+    supercollider-with-sc3-plugins
   ];
 }
