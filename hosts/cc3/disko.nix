@@ -3,7 +3,7 @@
     disk = {
       cclab-disk = {
         type = "disk";
-        device = "/dev/disk/by-id/a5f1492c-f60d-489c-9902-91e545dd3c38";
+        device = "/dev/disk/by-id/ata-HGST_HTS721010A9E630_JR1000BNJD9YP";
         content = {
           type = "gpt";
           partitions = {

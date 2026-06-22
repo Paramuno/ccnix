@@ -11,8 +11,6 @@
     ../../modules/system/core-config.nix
     ../../modules/system/gui-config.nix
     ../../modules/system/ndi.nix
-    ../../modules/system/ollama.nix
-    ../../modules/system/opencode.nix
   ];
 
   networking.hostName = "cc1";
@@ -58,6 +56,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    ollama
+    # ollama
   ];
 }
