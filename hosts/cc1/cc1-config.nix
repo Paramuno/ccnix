@@ -60,7 +60,7 @@
     libreoffice
     blender
     reaper
-    vcv-rack
+    davinci-resolve
     arduino
     processing
     puredata
