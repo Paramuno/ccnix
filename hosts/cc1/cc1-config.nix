@@ -44,10 +44,6 @@
       "audio"
     ];
   };
-  # services.displayManager.autoLogin = {
-  #   enable = true;
-  #   user = "alle";
-  # };
 
   # ── Services & programs ────────────────────────────────────────────────────────
   # For Bottles
