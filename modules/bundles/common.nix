@@ -6,7 +6,7 @@
   myModules.apps = {
     ags.enable = true;
     direnv.enable = true;
-    espanso.enable = true;
+    # espanso.enable = true;
     gpg.enable = true;
     firefox.enable = true;
     "gh-dash".enable = true;

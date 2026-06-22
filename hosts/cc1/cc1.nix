@@ -11,18 +11,12 @@
 
   # Packages only on this host
   home.packages = with pkgs; [
-    # obsidian # Md notes
-    # proton-vpn # VPN paid
-    # proton-vpn-cli # For auto starting
   ];
   myModules.apps = {
     yazi.portal.enable = true; # NixOS yazi portal picker
     flatpak.enable = true;
-    pureref.enable = true;
-    supercollider.enable = true;
     t3code.enable = true;
     pi.enable = true; # Configured to use gemma4
-    zotero.enable = true;
   };
 
   home.sessionVariables = {
