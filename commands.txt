@@ -10,3 +10,6 @@ sudo nix --extra-experimental-features "nix-command flakes" run \
   --flake github:paramuno/ccnix#cc1 \
   --disk cclab-disk /dev/nvme0n1 \
   --extra-files /tmp/seed /
+
+
+  ,
