@@ -56,7 +56,7 @@
     '';
     zsh.shellAliases = {
       # Rebuild the system flake
-      ns = "cd ~/.config/home-manager && git add -A && sudo nixos-rebuild switch --flake .#cc2 && cd -";
+      ns = "cd ~/.config/home-manager && git add -A && sudo nixos-rebuild switch --flake .#cc4 && cd -";
       nd = "zellij delete-session 'cc1' --force";
     };
   };
