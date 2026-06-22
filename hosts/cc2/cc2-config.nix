@@ -15,7 +15,7 @@
     ../../modules/system/opencode.nix
   ];
 
-  networking.hostName = "cc1";
+  networking.hostName = "cc2";
   system.stateVersion = "26.05";
 
   # ── GPU & Hardware ──────────────────────────────────────────────────

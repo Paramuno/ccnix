@@ -13,7 +13,7 @@
     ../../modules/system/ndi.nix
   ];
 
-  networking.hostName = "cc1";
+  networking.hostName = "cc3";
   system.stateVersion = "26.05";
 
   # ── GPU & Hardware ──────────────────────────────────────────────────

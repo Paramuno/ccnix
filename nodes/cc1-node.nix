@@ -15,7 +15,7 @@
   ];
 
   deployment = {
-    targetHost = "10.10.2.13";
+    targetHost = "cc1.tail92efad.ts.net";
     targetUser = "root";
     allowLocalDeployment = true;
 
