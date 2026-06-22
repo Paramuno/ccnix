@@ -5,7 +5,6 @@
 {
   myModules.apps = {
     dunst.enable = true;
-    espanso.enable = true;
     eza.enable = true;
     fzf.enable = true;
     fastfetch.enable = true;
