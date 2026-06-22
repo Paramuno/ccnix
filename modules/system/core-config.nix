@@ -65,7 +65,7 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "client";
-    # extraUpFlags = [ "--ssh" ];
+    extraUpFlags = [ "--ssh" ];
   };
 
   # ── Services & programs ──────────────────────────────────────────────────────
@@ -99,16 +99,6 @@
     "AF_INET6"
   ];
 
-  # Securely generates the CAP_DAC_OVERRIDE wrapper for Wayland text expansion
-  services.espanso = {
-    enable = true;
-    package = pkgs.espanso-wayland;
-  };
-  # Makes espanso system service able to get env for gpg user service
-  systemd.user.services.espanso.environment = {
-    PATH = lib.mkForce "/etc/profiles/per-user/admin/bin:/run/current-system/sw/bin:/run/wrappers/bin";
-    GNUPGHOME = "/home/mar/.local/share/gnupg";
-  };
   environment.systemPackages = with pkgs; [
     brightnessctl
     firefox
