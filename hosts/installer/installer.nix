@@ -7,7 +7,7 @@
 }:
 let
   target = "cc1";
-  disk = "/dev/disk/by-id/a5f1492c-f60d-489c-9902-91e545dd3c38";
+  disk = "/dev/disk/by-id/nvme-CT4000T705SSD3_2452E99CE8AD";
 in
 {
   imports = [ "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix" ];
@@ -48,8 +48,8 @@ in
       nix run github:nix-community/disko/latest#disko-install -- \
         --write-efi-boot-entries \
         --flake ${inputs.self}#${target} \
-        --disk main ${disk} \
-        --extra-files /tmp/seed /
+        --disk cclab-disk ${disk} \
+        --extra-files /tmp/seed/etc/admin.pass /etc/admin.pass
       touch /run/installed
       echo ">>> Done. Rebooting in 5s"; sleep 5; reboot
     '';
