@@ -51,9 +51,6 @@
       export STARSHIP_HOST_ICON="*󰲠 "
     '';
     zsh.shellAliases = {
-      # Rebuild the system flake
-      ns = "cd ~/.config/home-manager && git add -A && sudo nixos-rebuild switch --flake .#cc2 && cd -";
-      nd = "zellij delete-session 'cc1' --force";
     };
   };
 
