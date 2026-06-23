@@ -46,6 +46,9 @@
       input {
           sensitivity = -1.0
       }
+      cursor {
+          no_hardware_cursors = true
+      }
     '';
   };
 
