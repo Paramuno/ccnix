@@ -18,13 +18,18 @@
 
   # ── GPU & Hardware ──────────────────────────────────────────────────
   boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "nvidia_modest"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ];
   hardware.nvidia = {
     modesetting.enable = true; # Modesetting is required for Wayland and Hyprland
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     # Use the NVidia open source kernel module (Recommended for RTX 20-series+) not noveau driver
-    open = false;
+    open = true;
     nvidiaSettings = true; # Enable the Nvidia settings menu, via `nvidia-settings`.
     package = config.boot.kernelPackages.nvidiaPackages.stable; # (stable, beta, production, etc.)
   };

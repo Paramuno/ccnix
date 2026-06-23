@@ -11,18 +11,12 @@
 
   # Packages only on this host
   home.packages = with pkgs; [
-    obsidian # Md notes
-    proton-vpn # VPN paid
-    proton-vpn-cli # For auto starting
   ];
   myModules.apps = {
     yazi.portal.enable = true; # NixOS yazi portal picker
     flatpak.enable = true;
-    pureref.enable = true;
-    supercollider.enable = true;
     t3code.enable = true;
     pi.enable = true; # Configured to use gemma4
-    zotero.enable = true;
   };
 
   home.sessionVariables = {
@@ -55,12 +49,12 @@
   # Per host extra configurations
   programs = {
     zsh.envExtra = ''
-      export STARSHIP_HOST_ICON="*󰲠 "
+      export STARSHIP_HOST_ICON="*󰲦 "
     '';
     zsh.shellAliases = {
       # Rebuild the system flake
       ns = "cd ~/.config/home-manager && git add -A && sudo nixos-rebuild switch --flake .#cc4 && cd -";
-      nd = "zellij delete-session 'cc1' --force";
+      nd = "zellij delete-session 'cc4' --force";
     };
   };
 
