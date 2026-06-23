@@ -18,12 +18,13 @@
 
   # ── GPU & Hardware ──────────────────────────────────────────────────
   boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
-  services.xserver.videoDrivers = [
+  boot.initrd.kernelModules = [
     "nvidia"
     "nvidia_modest"
     "nvidia_uvm"
     "nvidia_drm"
   ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true; # Modesetting is required for Wayland and Hyprland
     powerManagement.enable = false;
