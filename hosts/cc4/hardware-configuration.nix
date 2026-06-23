@@ -15,47 +15,58 @@
   ];
 
   boot.initrd.availableKernelModules = [
-    "nvme"
     "xhci_pci"
     "ahci"
+    "nvme"
     "usbhid"
     "usb_storage"
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/a5f1492c-f60d-489c-9902-91e545dd3c38";
+    device = "/dev/disk/by-uuid/d10970dd-8cbc-44d1-8e2e-75fd401309f3";
     fsType = "btrfs";
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/a5f1492c-f60d-489c-9902-91e545dd3c38";
-    fsType = "btrfs";
-    options = [ "subvol=home" ];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/a5f1492c-f60d-489c-9902-91e545dd3c38";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/0977-1D65";
-    fsType = "vfat";
     options = [
-      "fmask=0077"
-      "dmask=0077"
+      "compress=zstd"
+      "noatime"
+      "subvol=@"
     ];
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/6f327a3f-29c7-4335-9668-a52d9753a2cb"; }
-  ];
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/d10970dd-8cbc-44d1-8e2e-75fd401309f3";
+    fsType = "btrfs";
+    options = [
+      "compress=zstd"
+      "noatime"
+      "subvol=@home"
+    ];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/d10970dd-8cbc-44d1-8e2e-75fd401309f3";
+    fsType = "btrfs";
+    options = [
+      "compress=zstd"
+      "noatime"
+      "subvol=@nix"
+    ];
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/6B6F-3333";
+    fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
+  };
+
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
