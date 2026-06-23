@@ -20,7 +20,7 @@
   boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
   boot.initrd.kernelModules = [
     "nvidia"
-    "nvidia_modest"
+    "nvidia_modeset"
     "nvidia_uvm"
     "nvidia_drm"
   ];
