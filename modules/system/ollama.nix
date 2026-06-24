@@ -7,6 +7,7 @@
     loadModels = [
       "gemma4"
       "batiai/qwen3.6-35b:iq4"
+      "qwen2:0.5b"
     ];
   };
 }
