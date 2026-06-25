@@ -47,19 +47,32 @@
   };
   home-manager.users.alle = {
     imports = [
-      ../../modules/apps/zsh.nix
+      ../../modules/apps/fzf.nix
+      ../../modules/apps/git.nix
+      ../../modules/apps/kitty.nix
+      ../../modules/apps/lazygit.nix
       ../../modules/apps/pi.nix
+      ../../modules/apps/ssh.nix
       ../../modules/apps/starship.nix
-      ../../modules/bundles/core.nix
+      ../../modules/apps/t3code.nix
+      ../../modules/apps/zsh.nix
+
       ../../modules/bundles/dotfiles.nix
       ../../modules/bundles/nix-packages.nix
       ../../modules/bundles/packages.nix
     ];
     home.stateVersion = "25.05";
-    home.packages = [ pkgs.kitty ]; # kitty.nix ships config only; binary lives in nix-packages bundle alle won't get
+    # home.packages = [ pkgs.kitty ]; # kitty.nix ships config only; binary lives in nix-packages bundle alle won't get
     myModules.apps = {
+      fzf.enable = true;
+      git.enable = true;
+      kitty.enable = true;
+      lazygit.enable = true;
       pi.enable = true;
+      ssh.enable = true;
+      starship.enable = true;
       t3code.enable = true;
+      zsh.enable = true;
     };
   };
 
