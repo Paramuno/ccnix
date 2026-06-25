@@ -47,7 +47,13 @@
   };
   home-manager.users.alle = {
     imports = [
-      ../../modules/shared.nix
+      ../../modules/apps/zsh.nix
+      ../../modules/apps/pi.nix
+      ../../modules/apps/starship.nix
+      ../../modules/bundles/core.nix
+      ../../modules/bundles/dotfiles.nix
+      ../../modules/bundles/nix-packages.nix
+      ../../modules/bundles/packages.nix
     ];
     home.stateVersion = "25.05";
     home.packages = [ pkgs.kitty ]; # kitty.nix ships config only; binary lives in nix-packages bundle alle won't get
