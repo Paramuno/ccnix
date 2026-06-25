@@ -45,19 +45,17 @@
       "audio"
     ];
   };
-  home-manager.users.alle =
-    { pkgs, ... }:
-    {
-      imports = [
-        ../../modules/shared.nix
-      ];
-      home.stateVersion = "25.05";
-      home.packages = [ pkgs.kitty ]; # kitty.nix ships config only; binary lives in nix-packages bundle alle won't get
-      myModules.apps = {
-        pi.enable = true;
-        t3code.enable = true;
-      };
+  home-manager.users.alle = {
+    imports = [
+      ../../modules/shared.nix
+    ];
+    home.stateVersion = "25.05";
+    home.packages = [ pkgs.kitty ]; # kitty.nix ships config only; binary lives in nix-packages bundle alle won't get
+    myModules.apps = {
+      pi.enable = true;
+      t3code.enable = true;
     };
+  };
 
   # ── Services & programs ────────────────────────────────────────────────────────
   # For Bottles
