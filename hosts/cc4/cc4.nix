@@ -1,4 +1,3 @@
-# ~/.config/home-manager/hosts/nixos.nix
 {
   pkgs,
   ...

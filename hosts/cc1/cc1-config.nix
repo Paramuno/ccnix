@@ -35,7 +35,8 @@
     isNormalUser = true;
     description = "alle";
     hashedPasswordFile = "/etc/alle.pass";
-    shell = pkgs.bash; # or pkgs.zsh if you want
+    shell = pkgs.zsh;
+    # shell = pkgs.bash;
     home = "/home/alle";
     createHome = true;
     extraGroups = [
@@ -44,6 +45,22 @@
       "audio"
     ];
   };
+  home-manager.users.alle =
+    { pkgs, ... }:
+    {
+      imports = [
+        ../../modules/apps/zsh.nix
+        ../../modules/apps/kitty.nix
+        ../../modules/apps/pi.nix
+      ];
+      home.stateVersion = "25.05";
+      home.packages = [ pkgs.kitty ]; # kitty.nix ships config only; binary lives in nix-packages bundle alle won't get
+      myModules.apps = {
+        zsh.enable = true;
+        kitty.enable = true;
+        pi.enable = true;
+      };
+    };
 
   # ── Services & programs ────────────────────────────────────────────────────────
   # For Bottles
