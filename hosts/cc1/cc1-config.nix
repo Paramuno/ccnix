@@ -56,7 +56,6 @@
       myModules.apps = {
         pi.enable = true;
         t3code.enable = true;
-        flatpak.enable = true;
       };
     };
 
