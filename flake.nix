@@ -23,6 +23,7 @@
     nix-claude-code.url = "github:ryoppippi/nix-claude-code";
     opencode.url = "github:anomalyco/opencode";
     zjstatus.url = "github:dj95/zjstatus";
+    comfyui-nix.url = "github:utensils/comfyui-nix";
   };
 
   outputs =
