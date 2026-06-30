@@ -85,6 +85,22 @@
     vista-fonts # Optional: Adds Calibri, Consolas, etc.
   ];
 
+  systemd.services.comfyui-serve = {
+    after = [
+      "tailscaled.service"
+      "comfyui.service"
+    ];
+    requires = [ "comfyui.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      TimeoutStartSec = 30;
+      ExecStart = "${pkgs.tailscale}/bin/tailscale serve --bg --https=443 http://127.0.0.1:8188";
+      ExecStop = "${pkgs.tailscale}/bin/tailscale serve --https=443 off";
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     ollama
     google-chrome
