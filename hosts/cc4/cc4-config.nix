@@ -11,6 +11,7 @@
     ../../modules/system/core-config.nix
     ../../modules/system/gui-config.nix
     ../../modules/system/ndi.nix
+    ../../modules/system/rave.nix
   ];
 
   networking.hostName = "cc4";
@@ -33,6 +34,12 @@
     open = true;
     nvidiaSettings = true; # Enable the Nvidia settings menu, via `nvidia-settings`.
     package = config.boot.kernelPackages.nvidiaPackages.stable; # (stable, beta, production, etc.)
+  };
+  # Rave config
+  myModules.system.rave = {
+    enable = true;
+    torchSpec = ">=2.7";
+    torchBackend = "cu128";
   };
 
   # ── Alle user ──────────────────────────────────────────────────
