@@ -43,13 +43,20 @@ let
     '';
     runScript = pkgs.writeShellScript "rave-dispatch" ''
       set -euo pipefail
-      install -Dm644${pyproject} "$RAVE_HOME/pyproject.toml"
+      install -Dm644 ${pyproject} "$RAVE_HOME/pyproject.toml"
       cd "$RAVE_HOME"
       [ -x "$UV_PROJECT_ENVIRONMENT/bin/rave" ] || uv sync
       case "''${1-}" in
-        sync) shift; exec uv sync --upgrade "$@" ;;
-        env)  shift; export PATH="$UV_PROJECT_ENVIRONMENT/bin:$PATH"; exec "$@" ;;
-        *)    exec "$UV_PROJECT_ENVIRONMENT/bin/rave" "$@" ;;
+      sync)
+        shift
+        exec uv sync --upgrade "$@"
+        ;;
+      env)
+        shift
+        export PATH="$UV_PROJECT_ENVIRONMENT/bin:$PATH"
+        exec "$@"
+        ;;
+      *) exec "$UV_PROJECT_ENVIRONMENT/bin/rave" "$@" ;;
       esac
     '';
   };
