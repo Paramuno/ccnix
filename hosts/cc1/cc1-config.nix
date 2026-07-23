@@ -13,6 +13,7 @@
     ../../modules/system/ndi.nix
     ../../modules/system/ollama.nix
     ../../modules/system/opencode.nix
+    ../../modules/system/comfyui.nix
     ../../modules/system/rave.nix
   ];
 
