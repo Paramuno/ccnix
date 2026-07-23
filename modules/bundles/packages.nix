@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     inputs.nix-claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default # llm agent cli
+    jan # llm OSS manager
     anydesk # remote working
     ast-grep # grep
     bat # cat w highlights & more
