@@ -1,0 +1,360 @@
+---
+title: "NixOS / Home-Manager Repo Reference"
+subtitle: "cc1 · cc3 · cc4 — flake, modules, bundles, packages"
+date: last-modified
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: true
+    toc-depth: 3
+    toc-expand: 2
+    toc-location: left
+    number-sections: true
+    anchor-sections: true
+    code-copy: true
+    embed-resources: true
+    tbl-cap-location: top
+    grid:
+      body-width: 1100px
+execute:
+  echo: false
+  freeze: auto
+---
+
+::: {.callout-note appearance="simple"}
+Generated from a Repomix dump of the flake (`**/*.nix`). Covers every module, bundle and package in the tree.
+:::
+
+# Topology
+
+| Layer | Path | Role |
+|---|---|---|
+| Flake | `flake.nix` | Inputs, `devShells`, `nixosConfigurations`, `homeConfigurations`, `colmena` |
+| Node descriptors | `nodes/ccN-node.nix` | Plain attrsets: `type`, `name`, `hostPlatform`, `user`, `modules`, `homeModules`, `deployment` |
+| Node builder | `lib/mkNode.nix` | Single source of truth turning a node into `nixosSystem` or `homeManagerConfiguration` |
+| Host system | `hosts/ccN/ccN-config.nix` | NixOS config: hostname, GPU, users, system-module imports |
+| Host home | `hosts/ccN/ccN.nix` | Home-Manager config: imports `shared.nix`, per-host app toggles |
+| Disk | `hosts/ccN/disko.nix` | Declarative GPT + btrfs (`@`, `@home`, `@nix`, zstd, noatime) |
+| Shared HM entry | `modules/shared.nix` | Auto-imports **all** of `modules/bundles/` and `modules/apps/` |
+
+: Repository layers {#tbl-layers tbl-colwidths="[18,27,55]"}
+
+Hosts wired in `flake.nix`: **cc1**, **cc3**, **cc4**, plus an `installer` ISO.
+All nodes are `x86_64-linux`, user `admin`, deployed by colmena over Tailscale (`ccN.tail92efad.ts.net`), tags `workstation` / `linux`.
+
+::: {.callout-warning}
+`cc2` exists on disk (`nodes/cc2-node.nix`, `hosts/cc2/`) but is **commented out** of the `nodes` attrset in `flake.nix`.
+:::
+
+## Evaluation flow
+
+```{mermaid}
+%%| fig-cap: "How a node becomes a system"
+flowchart LR
+  A[flake.nix] --> B[nodes/ccN-node.nix]
+  B --> C[lib/mkNode.nix]
+  C --> D[hosts/ccN/ccN-config.nix]
+  C --> E[hosts/ccN/ccN.nix]
+  E --> F[modules/shared.nix]
+  F --> G[modules/bundles/*]
+  F --> H[modules/apps/*]
+  D --> I[modules/system/*]
+  D --> J[modules/profiles/admin.nix]
+  G -.->|sets enable flags| H
+```
+
+## `lib/mkNode.nix`
+
+Injects into every NixOS node: NUR overlay, `agenix`, `disko`, `home-manager`
+(`useGlobalPkgs`, `useUserPackages`, `backupFileExtension = "backup"`), and `nix-flatpak`
+into the user's HM imports. Passes `inputs`, `isNixOS`, `hostName`, `username` as
+`extraSpecialArgs` — `isNixOS` is the flag app modules branch on for Fedora parity.
+
+# Flake inputs
+
+| Input | Purpose |
+|---|---|
+| `nixpkgs` | `nixos-unstable` |
+| `nur` | Community repo — supplies `rycee.firefox-addons` |
+| `home-manager` | Follows nixpkgs |
+| `disko` | Declarative partitioning + `disko-install` |
+| `nix-flatpak` | Declarative Flatpak management (HM module) |
+| `agenix` | Age-based secrets (wired in; `secrets/secrets.nix` is still an empty stub) |
+| `ags` | Aylur's GTK Shell v1 |
+| `nix-claude-code` | Claude agent CLI package |
+| `opencode` | Declared but unused — the module shells out to `npx` instead |
+| `zjstatus` | Zellij status-bar WASM plugin |
+| `comfyui-nix` | ComfyUI NixOS module + overlay |
+
+: Flake inputs {#tbl-inputs}
+
+# System modules
+
+Files in `modules/system/`. Imported explicitly per host — **not** auto-discovered.
+
+| Module | What it does |
+|---|---|
+| `core-config.nix` | Flakes on, `allowUnfree`, systemd-boot + EFI, `linuxPackages_latest`, TZ `Europe/Berlin`, `en_US.UTF-8` w/ German `LC_*`, cachix substituters (`comfyui`, `nix-community`), NetworkManager, firewall (trusts `tailscale0`, opens 41641/5353/TCP 5960-5970 for NDI), openssh, Tailscale w/ `--ssh`, CUPS, zsh, `nix-ld`. Also runs **kanata** system-wide bound to one Cherry USB keyboard on TCP 10000, with `RestrictAddressFamilies` force-overridden so `hyprkan.py` can connect. Ships `brightnessctl`, `firefox`. |
+| `gui-config.nix` | `hardware.graphics` (+32-bit), Wayland/Ozone session vars, X11, SDDM, Plasma 6 fallback, Hyprland + XWayland, dconf, and the xdg-portal stack: `termfilechooser` as FileChooser, `hyprland` + `gtk` as defaults. |
+| `audio-config.nix` | PipeWire (ALSA + 32-bit, Pulse, JACK), rtkit, PulseAudio off. |
+| `ndi.nix` | Avahi w/ mDNS `.local` publishing + OBS wrapped with the `distroav` NDI plugin, `ndi-6` src hash force-overridden. |
+| `ollama.nix` | `ollama-cuda` service; declaratively pulls `gemma4`, `batiai/qwen3.6-35b:iq4`, `qwen2:0.5b`. |
+| `comfyui.nix` | ComfyUI w/ CUDA + Manager, `/var/lib/comfyui`, bound to `127.0.0.1` (firewall closed — reached via Tailscale), `--use-sage-attention`. Pins `ComfyUI-Custom-Scripts` and `ComfyUI-Z-Image-Turbo-Resolutions`. |
+| `opencode.nix` | `writeShellScriptBin` wrapper: `npx opencode-ai@latest`, forwards `DEEPSEEK_API_KEY`. |
+| `rave.nix` | IRCAM RAVE in a `buildFHSEnv` with a pinned `uv` venv (deps unpackageable in nixpkgs). Options: `version` (2.3.1), `torchSpec`, `torchBackend`, `extraDeps`. Subcommands `sync` / `env` / passthrough. |
+
+: `modules/system/` {#tbl-system tbl-colwidths="[18,82]"}
+
+## `modules/profiles/admin.nix`
+
+`admin` user (zsh, groups `networkmanager wheel uinput`, `kdePackages.kate`), root, both with
+the same ed25519 authorized key and `hashedPasswordFile = /etc/admin.pass`.
+`wheelNeedsPassword = true`. tmpfiles rule for `/home/admin` 0700.
+
+## `modules/experiments/piratebox.nix`
+
+Offline captive-portal mesh node: hostapd open AP on `wlan0`, dnsmasq DHCP + wildcard DNS
+sinkhole to `10.0.0.1`, filebrowser on 8080, nginx captive-portal redirects, tmpfiles-seeded
+wiki tree. **Not imported anywhere.** See @sec-observations.
+
+## `hosts/installer/installer.nix`
+
+Minimal installation ISO that unattendedly runs `disko-install` for `cc1` against a pinned
+NVMe by-id path, seeding `/etc/admin.pass` from the ISO. Refuses if the target disk has
+mounted partitions; 10s abort window.
+
+# Bundles
+
+All five files in `modules/bundles/` are auto-imported by `shared.nix`, so they apply to
+**every** HM user. `core.nix` and `common.nix` only flip `myModules.apps.*.enable` flags; the
+other three add content unconditionally.
+
+| Bundle | Contents |
+|---|---|
+| `core.nix` | Enables `dunst eza fzf fastfetch git hyprland kanata kitty lazygit polkit rofi ssh starship syncthing waybar yazi zellij zsh` |
+| `common.nix` | Enables `ags direnv gpg firefox gh-dash mpv swayimg vlc wlr-which-key zathura` (`espanso` commented out) |
+| `dotfiles.nix` | `programs.home-manager`, fontconfig, `~/.scripts` (executable, recursive), `~/.local/share/fonts`, nvim as a **mutable out-of-store symlink**, `user-dirs.dirs`, `mimeapps.list`, `browser`, and an `fd/ignore` (Trash, .git, backups, vault, mnt) |
+| `packages.nix` | The everywhere-package list — see @sec-packages |
+| `nix-packages.nix` | `lib.mkIf isNixOS` — NixOS-only packages Fedora gets from dnf |
+
+: `modules/bundles/` {#tbl-bundles tbl-colwidths="[20,80]"}
+
+# App modules
+
+Every file in `modules/apps/` follows the same shape: `options.myModules.apps.<name>.enable`
+plus `lib.mkIf`. `shared.nix` imports all of them; the bundles decide what's on. Most are
+thin — declare the package, symlink `static/<name>` into `~/.config`.
+
+::: {.panel-tabset}
+
+## Enabled by core
+
+| Module | What it does |
+|---|---|
+| `dunst.nix` | dunst pkg + static config |
+| `eza.nix` | eza w/ zsh aliases, git column, icons, `--group-directories-first --header` |
+| `fastfetch.nix` | fastfetch + `config.jsonc` |
+| `fzf.nix` | fzf w/ **fasd frecency piped ahead of `fd`** and `--tiebreak=index` to preserve that ordering; bat preview; catppuccin-ish colors |
+| `git.nix` | git w/ `diffnav` as pager for diff/show/log, nvim editor, rebase-on-pull, ignores `.direnv/` |
+| `hyprland.nix` | Symlinks `static/hypr`; picks `sources-nixos.conf` vs `sources-fedora.conf` off `isNixOS` |
+| `kanata.nix` | Config files only — the daemon is a system service in `core-config.nix` |
+| `kitty.nix` | Config only; binary comes from `nix-packages.nix` |
+| `lazygit.nix` | lazygit + static config |
+| `polkit.nix` | polkit-gnome agent as a user service, `ConditionEnvironment=XDG_CURRENT_DESKTOP=hyprland` so it doesn't collide with the Plasma fallback. NixOS-gated |
+| `rofi.nix` | rofi + `xdotool` + static config |
+| `ssh.nix` | `enableDefaultConfig = false`; `*` block w/ hashed known-hosts and ControlMaster / `master-%C` / 10m persist |
+| `starship.nix` | starship pkg + `static/starship` |
+| `syncthing.nix` | HM service on NixOS; a hand-written user unit (`syncthing-fedora`) with correct exit-code handling when `!isNixOS` |
+| `waybar.nix` | Declarative `mainBar` (top, non-exclusive, h49) merged with `static/waybar` for `modules.json`. Right side: mpd, pulseaudio, network, tray, custom/vault, battery, clock |
+| `yazi.nix` | Yazi behind a `writeShellScriptBin` wrapper (debug hook). Separate `portal.enable` sub-option installs `yazi-picker.sh` for `xdg-desktop-portal-termfilechooser`, launching kitty w/ `-u DBUS_SESSION_BUS_ADDRESS` and handling save/dir/open cases |
+| `zellij.nix` | Zellij w/ all shell integrations off; static `config.kdl` plus a generated `zjstatus.kdl` layout — pinned floating status pane, mode/tab formatting, git-branch command module, Europe/London clock, vertical/horizontal swap layouts |
+| `zsh.nix` | zsh in `$XDG_CONFIG_HOME/zsh`, oh-my-zsh w/ `fasd` plugin (no theme), syntax highlighting. Re-sources `hm-session-vars.sh` in both `initContent` and `envExtra` to survive Wayland/SSH env drops; loads `zsh-autocomplete` last, reclaims `^S` for fzf history, unbinds the Alt-hjkl fasd keys |
+
+: Core apps {#tbl-apps-core tbl-colwidths="[16,84]"}
+
+## Enabled by common
+
+| Module | What it does |
+|---|---|
+| `ags.nix` | AGS v1 shell + `gtksourceview`; config as a **mutable** out-of-store symlink |
+| `direnv.nix` | direnv + `nix-direnv`, zsh integration |
+| `firefox.nix` | Full declarative profile: no password prompts, custom download dir, userChrome hiding titlebar buttons, Gemini + Nix Packages search engines. Addons from NUR: vimium-c, darkreader, violentmonkey, bitwarden, onetab, RES, copy-as-markdown, ublock-origin, videospeed; plus two hand-built XPIs (`gemini-url-search`, `nonstop-vimium`) |
+| `gh-dash.nix` | gh-dash TUI (settings block commented out) |
+| `gpg.nix` | GPG w/ `GNUPGHOME` relocated to `~/.local/share/gnupg`, `pass`, gpg-agent w/ SSH support, 1h/24h cache TTLs, pinentry-tty on NixOS vs pinentry-rofi elsewhere |
+| `mpv.nix` | mpv, yt-dlp, and an `mpv-clipboard` script (plays whatever's in `wl-paste`). Plus a **weekly systemd user timer** refreshing yt-dlp cookies from Firefox |
+| `swayimg.nix` | swayimg + config |
+| `vlc.nix` | vlc + config |
+| `wlr-which-key.nix` | Config only |
+| `zathura.nix` | zathura + config |
+
+: Common apps {#tbl-apps-common tbl-colwidths="[16,84]"}
+
+## Per-host opt-in
+
+| Module | What it does | Hosts |
+|---|---|---|
+| `flatpak.nix` | nix-flatpak, `uninstallUnmanaged = true`, flathub remote, weekly auto-update | all |
+| `pi.nix` | `pi` coding agent via `npx @earendil-works/pi-coding-agent`, with `~/.pi/agent/models.json` hardwired to local Ollama (`gemma4`, `qwen3.6-35b:iq4`) | all |
+| `t3code.nix` | T3 Code 0.0.20 AppImage wrapped, relaunched with Wayland/Ozone flags + 1.25 scale, plus desktop item | all |
+| `yazi.nix` (`portal`) | Enables the termfilechooser picker | all |
+| `pureref.nix` | PureRef 2.1.1 AppImage from a personal GitHub release, wrapped w/ `appimageTools`, desktop entry + icons extracted | cc2 |
+| `zotero.nix` | Zotero wrapped w/ `symlinkJoin` to relocate `HOME` and force a profile path; better-bibtex XPI pinned from `static/releases/zotero-plugins.json` | cc2 |
+
+: Per-host apps {#tbl-apps-host tbl-colwidths="[16,68,16]"}
+
+## Dormant
+
+Defined but never enabled anywhere.
+
+| Module | What it would do |
+|---|---|
+| `broot.nix` | broot w/ zsh `br` integration, modal mode, starts in command mode |
+| `libreoffice.nix` | `libreoffice-fresh` + `jre_minimal` |
+| `stirling-pdf.nix` | Local Stirling-PDF as a user service on `:12120`, login disabled, configurable `host` option, plus a desktop entry that `xdg-open`s it |
+| `supercollider.nix` | SuperCollider config dir only |
+| `tmux.nix` | Config only |
+| `vifm.nix` | vifm + config |
+
+: Dormant apps {#tbl-apps-dormant tbl-colwidths="[18,82]"}
+
+:::
+
+# Packages {#sec-packages}
+
+## `modules/bundles/packages.nix` — every host, every OS
+
+| Package | Why |
+|---|---|
+| `nix-claude-code` (flake input) | Claude agent CLI |
+| `jan` | Local/OSS LLM manager GUI |
+| `anydesk` | Remote desktop |
+| `ast-grep` | Structural (AST) code search |
+| `bat` | `cat` with syntax highlighting |
+| `btop` | Resource monitor |
+| `colmena` | Multi-host NixOS deployment orchestrator |
+| `calibre` | Ebook management; brings `ebook-convert` |
+| `chafa` | Images as terminal graphics |
+| `dysk` | Disk usage viewer (`df` replacement) |
+| `fasd` | Frecency database; feeds the fzf widgets |
+| `fd` | Fast `find` |
+| `fish` | Secondary shell |
+| `gcc` | Compiler dependency |
+| `hyprshot` | Hyprland screenshots |
+| `imagemagick` | Image conversion |
+| `jq` | JSON processor |
+| `pandoc` | Document format conversion |
+| `ripgrep` | Fast recursive grep |
+| `sshfs` | Mount remote dirs over SSH |
+| `tailscale` | Mesh VPN client |
+| `trash-cli` | Safe `rm` |
+| `unzip` | Archives |
+| `wev` | Wayland event debugger |
+| `wget` | HTTP downloads |
+| `wl-clipboard` | Wayland clipboard (nvim yank/paste) |
+| `zoxide` | Smarter `cd` |
+| `yt-dlp` | Video downloader; mpv dependency |
+| `zsh-autocomplete` | zsh completion plugin |
+| `as-tree` | Renders `fd` output as a tree |
+| `statix` | Nix linter |
+| `gh` | GitHub CLI |
+
+: Everywhere packages {#tbl-pkgs-all tbl-colwidths="[30,70]"}
+
+**Fonts:** `corefonts`, `noto-fonts`, `noto-fonts-cjk-sans`, `noto-fonts-color-emoji`,
+`nerd-fonts.jetbrains-mono`, `nerd-fonts.fira-code`, `nerd-fonts.iosevka`.
+
+Commented out: a `forgecode` `npx` wrapper.
+
+## `modules/bundles/nix-packages.nix` — NixOS only
+
+`neovim` · `kitty` · `psmisc` (killall/fuser/pstree) · `xdg-desktop-portal-gtk` ·
+`xdg-desktop-portal-termfilechooser` · `tree-sitter` · `nodejs` · `gnumake` · `libnotify` ·
+`socat` (Hyprland IPC + AGS/Bottles fix) · `nil` (Nix LSP) · `statix` · `nixfmt` · `hyprlock`.
+
+Also sets GNOME `color-scheme = prefer-dark` via dconf.
+
+## System packages
+
+| Where | Packages |
+|---|---|
+| `core-config.nix` | `brightnessctl`, `firefox` |
+| `admin.nix` (user pkgs) | `kdePackages.kate` |
+| `ndi.nix` | wrapped OBS + distroav |
+| `opencode.nix` | `opencode` shim |
+| `rave.nix` | `rave` FHS env (cc1, cc4) |
+| `cc1-config.nix` | `ollama`, `google-chrome`, `vlc`, `libreoffice`, `blender`, `reaper`, `davinci-resolve`, `arduino`, `processing`, `puredata`, `audacity`, `bitwig-studio`, `supercollider-with-sc3-plugins` |
+| `cc2-config.nix` | `ollama` |
+| `cc3` / `cc4` | none |
+| All hosts' `fonts.packages` | `corefonts`, `vista-fonts` |
+
+: System packages by origin {#tbl-pkgs-sys tbl-colwidths="[25,75]"}
+
+## devShell
+
+Repo-local via direnv, defined in `flake.nix`:
+
+`tree-sitter` `nil` `nixfmt` `kdlfmt` `statix` `deadnix` `lua-language-server` `stylua`
+`vscode-langservers-extracted` `yaml-language-server` `marksman` `taplo`
+`bash-language-server` `shfmt` `prettier`
+
+## Flatpaks
+
+`com.usebottles.bottles` · `com.github.tchx84.Flatseal` · `com.bambulab.BambuStudio` ·
+`org.freecad.FreeCAD`
+
+# Per-host matrix
+
+|  | cc1 | cc2 *(disabled)* | cc3 | cc4 |
+|---|---|---|---|---|
+| CPU | AMD | AMD | Intel | Intel |
+| GPU | NVIDIA (open, stable) | NVIDIA | NVIDIA | NVIDIA + `nvidia_drm.fbdev=1`, initrd modules |
+| Disk | disko (NVMe CT4000T705) | disko | disko (HGST SATA) | static `fileSystems`, no disko |
+| System modules | admin, audio, core, gui, ndi, **ollama, opencode, comfyui, rave** | admin, audio, core, gui, ndi, ollama, opencode | admin, audio, core, gui, ndi | admin, audio, core, gui, ndi, **rave** |
+| HM extra apps | yazi.portal, flatpak, t3code, pi | + `pureref`, `zotero` | same as cc1 | same as cc1 |
+| Hyprland sensitivity | -1.0 | -1.0 | -0.0 | -1.0 (+ `no_hardware_cursors`) |
+| Extra | `comfyui-serve` unit → `tailscale serve --https=443` → `:8188`; second HM user `alle` | — | — | RAVE torch `>=2.7` / `cu128` |
+
+: Host comparison {#tbl-hosts}
+
+`alle` (second user, all hosts) is a plain NixOS user on bash — except on cc1, where it gets
+zsh and a hand-picked HM import list: `fzf git kitty lazygit pi ssh starship t3code zsh`
+plus the `dotfiles`, `nix-packages` and `packages` bundles.
+
+Rebuild aliases per host:
+
+```bash
+ns   # cd ~/.config/home-manager && git add -A && sudo nixos-rebuild switch --flake .#ccN && cd -
+nd   # zellij delete-session 'ccN' --force
+```
+
+# Observations {#sec-observations}
+
+::: {.callout-important}
+## `piratebox.nix` reuses broot's option key
+
+It declares `options.myModules.apps.broot.enable = mkEnableOption "piratebox"` and gates on
+it. Harmless today only because `modules/experiments/` isn't auto-imported — importing it
+would either collide with `broot.nix` or silently turn on an open Wi-Fi AP when broot is
+enabled. Rename to `myModules.experiments.piratebox.enable`.
+:::
+
+::: {.callout-warning}
+## Runtime `npx` breaks reproducibility
+
+The `opencode` flake input is unused; `modules/system/opencode.nix` runs
+`npx opencode-ai@latest` at eval-free runtime instead. Same pattern in `pi.nix`
+(`npx @earendil-works/pi-coding-agent`). Neither pins a version, and neither works offline.
+:::
+
+::: {.callout-note}
+## Smaller items
+
+- **Dormant app modules:** `broot`, `libreoffice`, `stirling-pdf`, `supercollider`, `tmux`, `vifm`.
+- **`cc2` is orphaned** — full host + node definitions exist but it's commented out of `flake.nix`.
+- **`secrets/secrets.nix` is an empty stub** despite `agenix` being wired into every node.
+- **`/etc/*.pass` files are out-of-band.** The installer seeds `admin.pass`; nothing seeds `alle.pass`.
+- **Kanata is device-pinned** to one Cherry USB keyboard by-id path in `core-config.nix`, shared across all hosts.
+- `system.stateVersion` is `26.05` vs `home.stateVersion` `25.05` — intentional, but don't let it drift further.
+:::
