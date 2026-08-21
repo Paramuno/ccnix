@@ -5,6 +5,7 @@
 {
   myModules.apps = {
     ags.enable = true;
+    quarto.enable = true;
     direnv.enable = true;
     # espanso.enable = true;
     gpg.enable = true;
