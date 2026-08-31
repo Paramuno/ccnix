@@ -1,0 +1,232 @@
+{
+  "intro": "Welcome to Codeship's NixOS installation :)",
+  "Questions you may have": [
+    {
+      "cmd": "What is Nix?",
+      "desc": "Nix is the package manager that NixOS is built upon. It replaces standard package management tools (such as apt, pacman, dpkg, snap) and builds your packages in isolation under /nix/store. Nothing is written to /usr/bin or /lib. In the case of NixOS the whole machine (kernel, services and dotfiles) is one expression evaluate from something called a flake. This is declared and rebuilt on a repo under sudo privileges, which means every change is atomic and easily reversible. It helps us easily manage Codeship's workstations and quickly make changes to all of them"
+    },
+    {
+      "cmd": "How do I install packages then?",
+      "desc": "Most of the time you don't even need to edit the flake! in NixOS, the habit of using 'sudo apt install' to download and run binaries is replaced with three other possibilities: 'nix shell' - for one terminal session, 'nix run' - for one command, 'nix develop' - for a project and all its dependencies. Reach for help if you want to propose globally installed packages for the lab ;)"
+    },
+    {
+      "cmd": "Can I use my other standard linux commands?",
+      "desc": "Yes - coreutils, bash, systemd, git, ssh, journalctl and pipes work as expected"
+    }
+  ],
+  "---": [],
+  "I want to install something from the internet": [
+    {
+      "cmd": "nix search nixpkgs slack",
+      "desc": "Do this before downloading anything. Chrome, Slack, VS Code, Zoom, Discord are all packaged here under the same name"
+    },
+    {
+      "cmd": ".deb or .rpm files",
+      "desc": "Cannot be installed, there is no dpkg. Search nixpkgs, then ask; only use distrobox as a fallback"
+    },
+    {
+      "cmd": "curl -sSf https://... | sh",
+      "desc": "Works if the installer writes to your home (rustup, nvm, bun). Fails if it wants /usr or apt"
+    },
+    {
+      "cmd": "chmod +x ./installer.run && ./installer.run",
+      "desc": "Fails with 'no such file'. The binary is fine, the loader is missing: run it under steam-run"
+    },
+    {
+      "cmd": "sed -i '1s|.*|#!/usr/bin/env bash|' script.sh",
+      "desc": "Fix for a downloaded script starting with #!/bin/bash, that path does not exist here"
+    },
+    {
+      "cmd": "flatpak install flathub com.example.App",
+      "desc": "Fallback for GUI apps not in nixpkgs. Sandboxed, does not touch the system"
+    },
+    {
+      "cmd": "GUI app installed but missing from the launcher",
+      "desc": "Log out and back in once; the desktop entry is only scanned at session start"
+    }
+  ],
+  "Find packages": [
+    {
+      "cmd": "nix search nixpkgs ripgrep",
+      "desc": "apt search equivalent; matches name and description"
+    },
+    {
+      "cmd": "nix profile install nixpkgs#nix-index && nix-index",
+      "desc": "Install, then build the file index once (~5 min)"
+    },
+    {
+      "cmd": "nix-locate bin/ffmpeg",
+      "desc": "apt-file search equivalent: which package provides this file"
+    },
+    {
+      "cmd": "nix eval --raw nixpkgs#ripgrep.version",
+      "desc": "Check the version before committing to it"
+    }
+  ],
+  "Run without installing": [
+    {
+      "cmd": "nix run nixpkgs#cowsay -- hello",
+      "desc": "Run a program once; nothing is installed, args go after --"
+    },
+    {
+      "cmd": "nix run nixpkgs#comma -- <cmd>",
+      "desc": "Run any command from any package by name; , <cmd> once comma is installed"
+    }
+  ],
+  "Add dependencies to my current terminal": [
+    {
+      "cmd": "nix shell nixpkgs#ripgrep nixpkgs#fd",
+      "desc": "Drop into a subshell with those tools on $PATH; exit to remove them"
+    },
+    {
+      "cmd": "nix shell nixpkgs/nixos-unstable#neovim",
+      "desc": "Same, but pulled from a specific channel/branch"
+    }
+  ],
+  "Project dev shells": [
+    {
+      "cmd": "nix develop",
+      "desc": "Enter the dev environment defined by ./flake.nix; replaces apt install build-deps"
+    },
+    {
+      "cmd": "nix develop nixpkgs#hello",
+      "desc": "Get the build dependencies of an existing package"
+    },
+    {
+      "cmd": "nix flake init -t templates#rust",
+      "desc": "Scaffold a flake.nix for a language; swap rust for python, go, c-hello"
+    },
+    {
+      "cmd": "echo 'use flake' > .envrc && direnv allow",
+      "desc": "Auto-enter the dev shell on cd; needs direnv"
+    }
+  ],
+  "Install for your user": [
+    {
+      "cmd": "nix profile install nixpkgs#htop",
+      "desc": "apt install without sudo; user-only, no config file edited"
+    },
+    {
+      "cmd": "nix profile list",
+      "desc": "What you installed imperatively; index numbers used below"
+    },
+    {
+      "cmd": "nix profile remove htop",
+      "desc": "apt remove equivalent; accepts name or index"
+    },
+    {
+      "cmd": "nix profile upgrade --all",
+      "desc": "apt upgrade for your user profile only"
+    },
+    {
+      "cmd": "nix profile rollback",
+      "desc": "Undo the last profile change; profiles are versioned like system generations"
+    }
+  ],
+  "How to use npm or cargo?": [
+    {
+      "cmd": "npm",
+      "desc": "Local installs work as is"
+    },
+    {
+      "cmd": "cargo",
+      "desc": "Works unmodified, targets '~/.cargo/bin' which should already be added to the $PATH, crates linking C libs need those libs in the dev shell"
+    }
+  ],
+  "What about python, pip and conda/miniconda": [
+    {
+      "cmd": "python -m venv .venv && source .venv/bin/activate",
+      "desc": "pip needs a venv here; the system interpreter is read-only. Never sudo pip"
+    },
+    {
+      "cmd": "pip install requests",
+      "desc": "Normal pip once the venv is active; .venv is a plain dir Nix does not manage"
+    },
+    {
+      "cmd": "uv pip install -r requirements.txt",
+      "desc": "Drop-in pip replacement, much faster, creates the venv if missing"
+    },
+    {
+      "cmd": "uv sync",
+      "desc": "Default for Python projects: reads pyproject.toml, manages the venv, no FHS needed"
+    },
+    {
+      "cmd": "uv run script.py",
+      "desc": "Run without activating anything; uv resolves deps first"
+    },
+    {
+      "cmd": "nix shell nixpkgs#python3Packages.numpy",
+      "desc": "When a pip wheel will not load: take the nixpkgs build instead"
+    },
+    {
+      "cmd": "nix shell nixpkgs#pixi",
+      "desc": "Use when you need conda-forge specifically: CUDA stacks, bioinformatics, R"
+    },
+    {
+      "cmd": "pixi init && pixi add python pytorch && pixi shell",
+      "desc": "Per-project conda-compatible env; prefer over conda itself"
+    },
+    {
+      "cmd": "nix run nixpkgs#conda",
+      "desc": "Last resort, per project. FHS wrapper; run conda-install once inside"
+    },
+    {
+      "cmd": "nix run nixpkgs#steam-run -- python -c 'import torch'",
+      "desc": "Fix for a wheel that cannot find libstdc++.so.6 or a missing loader"
+    }
+  ],
+  "Foreign binaries": [
+    {
+      "cmd": "nix run nixpkgs#appimage-run -- ./App.AppImage",
+      "desc": "AppImages will not run directly; there is no /lib loader"
+    },
+    {
+      "cmd": "nix run nixpkgs#steam-run -- ./prebuilt-binary",
+      "desc": "FHS sandbox for downloaded .bin/.run installers and vendor toolchains"
+    },
+    {
+      "cmd": "nix run nixpkgs#distrobox -- create --name ubuntu --image ubuntu:24.04",
+      "desc": "When you truly need apt; container, not the host"
+    }
+  ],
+  "Codeship aliases and shortcuts in the kitty console": [
+    {
+      "cmd": "Ctrl + s",
+      "desc": "Search from the previously used commands"
+    },
+    {
+      "cmd": "Ctrl + d",
+      "desc": "Autocompletes from all directories, useful when writing arguments"
+    },
+    {
+      "cmd": "Ctrl + Shift + y",
+      "desc": "Copy the output of the last command"
+    },
+    {
+      "cmd": "Ctrl + Shift + h",
+      "desc": "Open a Neovim instance with the editable output of the current terminal window"
+    },
+    {
+      "cmd": "ns",
+      "desc": "Repo alias: tree update, git add, rebuild switch"
+    },
+    {
+      "cmd": "v",
+      "desc": "Opens fuzzy search from all files on the NixOS profile"
+    }
+  ],
+  "For these you need to ask for a flake rebuild instead": [
+    {
+      "cmd": "~/.bashrc and files under /etc",
+      "desc": "Read-only symlinks into /nix/store. Editing fails by design, the content comes from the repo"
+    },
+    {
+      "cmd": "sudo systemctl enable <unit>",
+      "desc": "Reverted on the next rebuild. start/stop/status work fine for testing"
+    },
+    {
+      "cmd": "docker, printers, steam, vpn, udev rules",
+      "desc": "System services and hardware need a config change; these are the ones to bring to us"
+    }
+  ]
+}

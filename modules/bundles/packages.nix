@@ -4,6 +4,8 @@
   home.packages = with pkgs; [
     inputs.nix-claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default # llm agent cli
     jan # llm OSS manager
+    poppler-utils # pdfunite pdftoppm, pdfinfo
+    qpdf # merge encrypted pdfs
     anydesk # remote working
     ast-grep # grep
     bat # cat w highlights & more
@@ -34,6 +36,9 @@
     as-tree # for making automatic folder trees w fd
     statix # so nvim stops complaining
     gh # github CLI
+    dnsutils # debugging fileshare
+    uv # Python tooling
+    pixi # Python tooling
 
     # (writeShellScriptBin "forgecode" ''
     #   # LLM Harness open to try with Gemini Flash
@@ -49,5 +54,6 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     nerd-fonts.iosevka
+    nerd-fonts.caskaydia-cove
   ];
 }

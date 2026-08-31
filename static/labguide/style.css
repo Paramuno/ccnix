@@ -1,0 +1,107 @@
+/* GTK3 CSS only. Unsupported properties (letter-spacing, text-transform, flexbox,
+   grid, calc) make load_from_path throw and drop this entire file. */
+
+.desktop {
+    background-color: #000000;
+    padding: 28px;
+    font-family: "CaskaydiaCove Nerd Font", sans-serif;
+    font-size: 16px;
+    color: #dfe3ea;
+}
+
+.half {
+    padding: 8px;
+}
+
+.pane {
+    background-color: rgba(4, 5, 7, 0.96);
+    border: 1px solid rgba(223, 227, 234, 0.07);
+    border-radius: 8px;
+    margin: 8px;
+    padding: 16px 18px;
+}
+
+.pane-title {
+    color: #767d8a;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.scroll {
+    min-height: 120px;
+}
+
+/* Width knobs: raise pane-apps if app names truncate, lower pane-packages to
+   hand more room to the reference half. */
+.pane-apps {
+    min-width: 640px;
+}
+
+.pane-packages {
+    min-width: 300px;
+}
+
+.columns {
+    margin-bottom: 12px;
+}
+
+.entry {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    padding: 7px 10px;
+    margin-right: 8px;
+}
+
+.entry:hover {
+    background-color: rgba(223, 227, 234, 0.12);
+}
+
+.entry-name {
+    font-size: 16px;
+}
+
+
+.banner {
+    font-family: "CaskaydiaCove Nerd Font Mono", monospace;
+    font-size: 12px;
+    font-style: normal;
+    color: #d7a65c;
+}
+
+.fastfetch {
+    font-family: "CaskaydiaCove Nerd Font Mono", monospace;
+    font-size: 15px;
+    color: #bcc3cf;
+}
+
+.category {
+    color: #d7a65c;
+    font-size: 14px;
+    margin: 14px 0 8px 0;
+}
+
+.cmd-row {
+    padding: 4px 0;
+}
+
+.cmd {
+    font-family: "CaskaydiaCove Nerd Font Mono", monospace;
+    font-size: 15px;
+    color: #8fb7d8;
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+.cmd-desc {
+    font-size: 15px;
+    color: #838b98;
+}
+
+.notice {
+    color: #d2766b;
+    font-size: 15px;
+    padding: 8px 0;
+}

@@ -1,0 +1,66 @@
+{
+  "_hidden": [
+    "xterm",
+    "qrca",
+    "kwalletmanager",
+    "crashed processes",
+    "lrf viewer",
+    "ausweisapp",
+    "manage printing",
+    "btop++",
+    "fairlight studio utility",
+    "davinci control panels",
+    "blackmagic raw speed test"
+  ],
+  "Daily": [
+    "firefox",
+    "chrome",
+    "obsidian",
+    "kitty",
+    "thunar",
+    "anydesk",
+    "proton"
+  ],
+  "Audio": [
+    "reaper",
+    "vcv",
+    "supercollider",
+    "puredata",
+    "ardour",
+    "carla",
+    "qpwgraph"
+  ],
+  "Visual": [
+    "blender",
+    "resolve",
+    "pureref",
+    "gimp",
+    "inkscape",
+    "krita"
+  ],
+  "Hardware": [
+    "arduino",
+    "processing",
+    "kicad",
+    "freecad"
+  ],
+  "Media": [
+    "vlc",
+    "mpv",
+    "calibre",
+    "zotero"
+  ],
+  "Documents": [
+    "libreoffice",
+    "stirling",
+    "zathura",
+    "okular"
+  ],
+  "System": [
+    "nvidia",
+    "pavucontrol",
+    "systemsettings",
+    "kde",
+    "plasma"
+  ]
+}
