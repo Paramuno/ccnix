@@ -39,6 +39,7 @@
     dnsutils # debugging fileshare
     uv # Python tooling
     pixi # Python tooling
+    python3 # Python
 
     # (writeShellScriptBin "forgecode" ''
     #   # LLM Harness open to try with Gemini Flash
