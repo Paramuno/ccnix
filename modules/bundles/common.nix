@@ -7,6 +7,7 @@
     ags.enable = true;
     quarto.enable = true;
     rust.enable = true;
+    miniconda.enable = true;
     direnv.enable = true;
     # espanso.enable = true;
     gpg.enable = true;

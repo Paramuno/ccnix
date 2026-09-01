@@ -15,6 +15,7 @@
     ../../modules/system/opencode.nix
     ../../modules/system/comfyui.nix
     ../../modules/system/rave.nix
+    ../../modules/system/jupyterhub.nix
   ];
 
   networking.hostName = "cc1";
