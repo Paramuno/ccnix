@@ -86,14 +86,12 @@
   };
 
   # ── nix-ld ────────────────────────────────────────────────────────
+  programs.zsh.enable = true;
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
       stdenv.cc.cc.lib # Provides libstdc++.so.6
       zlib
-      glibc
-      # Essential for PyTorch / Audio / CUDA acceleration:
-      linuxPackages.nvidia_x11
       cudaPackages.cudatoolkit
       cudaPackages.cudnn
       ffmpeg
